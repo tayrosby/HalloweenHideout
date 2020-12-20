@@ -16,6 +16,9 @@
 		7348E46925807B86000BE321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7348E46825807B86000BE321 /* Assets.xcassets */; };
 		7348E47425807B86000BE321 /* HalloweenHideoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348E47325807B86000BE321 /* HalloweenHideoutTests.swift */; };
 		7348E47F25807B86000BE321 /* HalloweenHideoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348E47E25807B86000BE321 /* HalloweenHideoutUITests.swift */; };
+		73E42590258FE8D700606699 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E4258F258FE8D700606699 /* SpriteKit.framework */; };
+		73E42592258FE8E600606699 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E42591258FE8E600606699 /* GameplayKit.framework */; };
+		73E4259F2590065700606699 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E4259E2590065700606699 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		7348E47A25807B86000BE321 /* HalloweenHideoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HalloweenHideoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348E47E25807B86000BE321 /* HalloweenHideoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalloweenHideoutUITests.swift; sourceTree = "<group>"; };
 		7348E48025807B86000BE321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73E4258F258FE8D700606699 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		73E42591258FE8E600606699 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
+		73E4259E2590065700606699 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73E42590258FE8D700606699 /* SpriteKit.framework in Frameworks */,
+				73E42592258FE8E600606699 /* GameplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +93,7 @@
 				7348E47225807B86000BE321 /* HalloweenHideoutTests */,
 				7348E47D25807B86000BE321 /* HalloweenHideoutUITests */,
 				7348E45925807B85000BE321 /* Products */,
+				73E4258E258FE8D600606699 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +110,13 @@
 		7348E45A25807B85000BE321 /* HalloweenHideout */ = {
 			isa = PBXGroup;
 			children = (
+				7348E46825807B86000BE321 /* Assets.xcassets */,
 				7348E45B25807B85000BE321 /* AppDelegate.swift */,
 				7348E45D25807B85000BE321 /* GameScene.sks */,
 				7348E45F25807B85000BE321 /* Actions.sks */,
 				7348E46125807B85000BE321 /* GameScene.swift */,
-				7348E46325807B85000BE321 /* GameViewController.swift */,
-				7348E46525807B85000BE321 /* Main.storyboard */,
-				7348E46825807B86000BE321 /* Assets.xcassets */,
-				7348E46A25807B86000BE321 /* Info.plist */,
+				73E42597258FEB7C00606699 /* Controllers */,
+				73E42593258FE93900606699 /* Resources */,
 			);
 			path = HalloweenHideout;
 			sourceTree = "<group>";
@@ -129,6 +137,33 @@
 				7348E48025807B86000BE321 /* Info.plist */,
 			);
 			path = HalloweenHideoutUITests;
+			sourceTree = "<group>";
+		};
+		73E4258E258FE8D600606699 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73E42591258FE8E600606699 /* GameplayKit.framework */,
+				73E4258F258FE8D700606699 /* SpriteKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73E42593258FE93900606699 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				73E4259E2590065700606699 /* Launch Screen.storyboard */,
+				7348E46A25807B86000BE321 /* Info.plist */,
+				7348E46525807B85000BE321 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		73E42597258FEB7C00606699 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7348E46325807B85000BE321 /* GameViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +272,7 @@
 				7348E46725807B85000BE321 /* Main.storyboard in Resources */,
 				7348E45E25807B85000BE321 /* GameScene.sks in Resources */,
 				7348E46925807B86000BE321 /* Assets.xcassets in Resources */,
+				73E4259F2590065700606699 /* Launch Screen.storyboard in Resources */,
 				7348E46025807B85000BE321 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,7 +470,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8YK6MQH577;
-				INFOPLIST_FILE = HalloweenHideout/Info.plist;
+				INFOPLIST_FILE = HalloweenHideout/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tay.HalloweenHideout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -453,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8YK6MQH577;
-				INFOPLIST_FILE = HalloweenHideout/Info.plist;
+				INFOPLIST_FILE = HalloweenHideout/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tay.HalloweenHideout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

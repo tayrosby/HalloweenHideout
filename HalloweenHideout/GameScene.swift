@@ -10,100 +10,113 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
+   //MARK: - Properties
     
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    var ground: SKSpriteNode!
+    var player: SKSpriteNode!
     
-    override func sceneDidLoad() {
+    /*
+     creates a playable area for the character
+     */
+    //TODO: finish playable area
+    var playableRect: CGRect {
+        let ratio: CGFloat
+        switch UIScreen.main.nativeBounds.height {
+        case 2658, 1792, 2436:
+            ratio = 2.16
+        default:
+            ratio = 16/9
+        }
+        
+        //sets the playable height
+        let playableHeight = size.width / ratio
+        
+        //sets the rest of the margins
+        let playableMargin = (size.height - playableHeight) / 2.0
+        
+        return CGRect(x: 0.0, y: playableMargin, width: size.width, height: playableHeight)
+    }
+    
+    //MARK: - Systems
+    
+    /*
+     calls the setup function
+     */
+    override func didMove(to view: SKView) {
+        setUpNodes()
+    }
+    
+    //MARK: - Configuration
+    
 
-        self.lastUpdateTime = 0
+    /*
+     calls the nodes for the level
+     */
+    func setUpNodes() {
+        createBG()
+        createGround()
+        createPlayer()
+    }
+    
+    /*
+     creates background
+     */
+    func createBG() {
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
+        //adds the background image to the screen
+        let bg = SKSpriteNode(imageNamed: "1_game_background")
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        //anchors the background in the lower left corner
+        bg.anchorPoint = .zero
+        bg.position = .zero
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
+        //puts the background on the bottom most layer
+        bg.zPosition = -1.0
+        addChild(bg)
+        
+    }
+    
+    /*
+     creates the ground
+     */
+    func createGround() {
+        
+        //creates tiles for the player to walk
+        for i in 0...14 {
+            //Adds the ground to the scene
+            let ground = SKSpriteNode(imageNamed: "Tile (2)")
+            ground.name = "Ground"
             
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
+            //anchors the ground in the lower left corner of the screen
+            ground.anchorPoint = .zero
+            
+            //puts the ground a layer above the background
+            ground.zPosition = 1.0
+            
+            //puts the ground along the bottom of the screen
+            ground.position = CGPoint(x: CGFloat(i)*ground.frame.width, y: 0.0)
+            addChild(ground)
+            
         }
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+    /*
+     creates the player
+     */
+    func createPlayer() {
+        //adds the player image to the scene
+        player = SKSpriteNode(imageNamed: "0_Fallen_Angels_Idle Blinking_000")
+        player.name = "Player"
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        //puts the player on the top position layer
+        player.zPosition = 5.0
         
-        // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
-        }
-        
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
-        
-        self.lastUpdateTime = currentTime
+        //puts the player in the middle of the scene
+        player.position = CGPoint(x: frame.width/2.0 - 100.0, y: 128.0 + player.frame.height/3.0)
+        addChild(player)
     }
+    
+    
+    
+    
 }
