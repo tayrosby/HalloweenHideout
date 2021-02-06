@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		733832B925CB9F6E00139142 /* GraveyardTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 733832B725CB9F6E00139142 /* GraveyardTileSet.sks */; };
 		7348E45C25807B85000BE321 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348E45B25807B85000BE321 /* AppDelegate.swift */; };
 		7348E45E25807B85000BE321 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7348E45D25807B85000BE321 /* GameScene.sks */; };
 		7348E46025807B85000BE321 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7348E45F25807B85000BE321 /* Actions.sks */; };
@@ -16,9 +17,33 @@
 		7348E46925807B86000BE321 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7348E46825807B86000BE321 /* Assets.xcassets */; };
 		7348E47425807B86000BE321 /* HalloweenHideoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348E47325807B86000BE321 /* HalloweenHideoutTests.swift */; };
 		7348E47F25807B86000BE321 /* HalloweenHideoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7348E47E25807B86000BE321 /* HalloweenHideoutUITests.swift */; };
+		73BC5D2D25AE561F00398E92 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC5D2C25AE561F00398E92 /* Character.swift */; };
+		73BC5D3225AE57C300398E92 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC5D3125AE57C300398E92 /* Player.swift */; };
+		73BC5D3B25AE584B00398E92 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC5D3A25AE584B00398E92 /* Enemy.swift */; };
+		73BC5D4425AE59A900398E92 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC5D4325AE59A900398E92 /* MainMenu.swift */; };
+		73BE838125B792CA009D9810 /* CandyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE838025B792CA009D9810 /* CandyNode.swift */; };
+		73BE838625B793EF009D9810 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE838525B793EF009D9810 /* MainMenuController.swift */; };
+		73BE838B25B7943E009D9810 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BE838A25B7943E009D9810 /* MainMenu.storyboard */; };
+		73CC08EE25CDEDCB00D5F074 /* Enemy.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */; };
+		73D6AFC925CB3F5A00E719D4 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFC825CB3F5A00E719D4 /* PlayerController.swift */; };
+		73D6AFCE25CB4D5500E719D4 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFCD25CB4D5500E719D4 /* PlayerNode.swift */; };
+		73D6AFD325CB4E6400E719D4 /* ControlInputSourceDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFD225CB4E6400E719D4 /* ControlInputSourceDelagate.swift */; };
+		73D6AFD925CB547E00E719D4 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFD825CB547E00E719D4 /* IdleState.swift */; };
+		73D6AFDF25CB5FA500E719D4 /* PhysicsDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFDE25CB5FA500E719D4 /* PhysicsDetection.swift */; };
+		73D6AFE425CB8E3400E719D4 /* PlayerOneActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 73D6AFE325CB8E3400E719D4 /* PlayerOneActions.sks */; };
+		73D6AFEA25CB901700E719D4 /* PreviewScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 73D6AFE925CB901700E719D4 /* PreviewScene.sks */; };
+		73D6AFF525CB95C000E719D4 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFF425CB95C000E719D4 /* AnimationController.swift */; };
 		73E42590258FE8D700606699 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E4258F258FE8D700606699 /* SpriteKit.framework */; };
 		73E42592258FE8E600606699 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E42591258FE8E600606699 /* GameplayKit.framework */; };
 		73E4259F2590065700606699 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E4259E2590065700606699 /* Launch Screen.storyboard */; };
+		73F41E0425C687CA00845EC4 /* TouchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F41E0325C687CA00845EC4 /* TouchController.swift */; };
+		73F9112B25CCD14A0034F9AF /* ParallaxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9112A25CCD14A0034F9AF /* ParallaxController.swift */; };
+		73F9113325CD035F0034F9AF /* Hurtbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9113225CD035F0034F9AF /* Hurtbox.swift */; };
+		73F9113825CD03F10034F9AF /* Hitbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9113725CD03F10034F9AF /* Hitbox.swift */; };
+		73F9113D25CDC6430034F9AF /* AttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9113C25CDC6430034F9AF /* AttackState.swift */; };
+		73F9114225CDCC420034F9AF /* DamageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9114125CDCC420034F9AF /* DamageState.swift */; };
+		73F9114725CDD8790034F9AF /* AttackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9114625CDD8790034F9AF /* AttackController.swift */; };
+		73F9114C25CDD8F60034F9AF /* EnemyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9114B25CDD8F60034F9AF /* EnemyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		733832B725CB9F6E00139142 /* GraveyardTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GraveyardTileSet.sks; sourceTree = "<group>"; };
 		7348E45825807B85000BE321 /* HalloweenHideout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HalloweenHideout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348E45B25807B85000BE321 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7348E45D25807B85000BE321 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -54,9 +80,33 @@
 		7348E47A25807B86000BE321 /* HalloweenHideoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HalloweenHideoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348E47E25807B86000BE321 /* HalloweenHideoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalloweenHideoutUITests.swift; sourceTree = "<group>"; };
 		7348E48025807B86000BE321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73BC5D2C25AE561F00398E92 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		73BC5D3125AE57C300398E92 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		73BC5D3A25AE584B00398E92 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		73BC5D4325AE59A900398E92 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		73BE838025B792CA009D9810 /* CandyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyNode.swift; sourceTree = "<group>"; };
+		73BE838525B793EF009D9810 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		73BE838A25B7943E009D9810 /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Enemy.xcassets; sourceTree = "<group>"; };
+		73D6AFC825CB3F5A00E719D4 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
+		73D6AFCD25CB4D5500E719D4 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		73D6AFD225CB4E6400E719D4 /* ControlInputSourceDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputSourceDelagate.swift; sourceTree = "<group>"; };
+		73D6AFD825CB547E00E719D4 /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
+		73D6AFDE25CB5FA500E719D4 /* PhysicsDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsDetection.swift; sourceTree = "<group>"; };
+		73D6AFE325CB8E3400E719D4 /* PlayerOneActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerOneActions.sks; sourceTree = "<group>"; };
+		73D6AFE925CB901700E719D4 /* PreviewScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PreviewScene.sks; sourceTree = "<group>"; };
+		73D6AFF425CB95C000E719D4 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		73E4258F258FE8D700606699 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		73E42591258FE8E600606699 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = System/Library/Frameworks/GameplayKit.framework; sourceTree = SDKROOT; };
 		73E4259E2590065700606699 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		73F41E0325C687CA00845EC4 /* TouchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchController.swift; sourceTree = "<group>"; };
+		73F9112A25CCD14A0034F9AF /* ParallaxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxController.swift; sourceTree = "<group>"; };
+		73F9113225CD035F0034F9AF /* Hurtbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hurtbox.swift; sourceTree = "<group>"; };
+		73F9113725CD03F10034F9AF /* Hitbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hitbox.swift; sourceTree = "<group>"; };
+		73F9113C25CDC6430034F9AF /* AttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackState.swift; sourceTree = "<group>"; };
+		73F9114125CDCC420034F9AF /* DamageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageState.swift; sourceTree = "<group>"; };
+		73F9114625CDD8790034F9AF /* AttackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackController.swift; sourceTree = "<group>"; };
+		73F9114B25CDD8F60034F9AF /* EnemyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,13 +160,16 @@
 		7348E45A25807B85000BE321 /* HalloweenHideout */ = {
 			isa = PBXGroup;
 			children = (
+				73D6AFE825CB8E4600E719D4 /* Actions */,
 				7348E46825807B86000BE321 /* Assets.xcassets */,
 				7348E45B25807B85000BE321 /* AppDelegate.swift */,
 				7348E45D25807B85000BE321 /* GameScene.sks */,
-				7348E45F25807B85000BE321 /* Actions.sks */,
-				7348E46125807B85000BE321 /* GameScene.swift */,
 				73E42597258FEB7C00606699 /* Controllers */,
+				73D6AFD725CB542900E719D4 /* State */,
+				73BC5D3F25AE598F00398E92 /* Scenes */,
 				73E42593258FE93900606699 /* Resources */,
+				73BC5D3625AE583400398E92 /* Models */,
+				73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */,
 			);
 			path = HalloweenHideout;
 			sourceTree = "<group>";
@@ -139,6 +192,47 @@
 			path = HalloweenHideoutUITests;
 			sourceTree = "<group>";
 		};
+		73BC5D3625AE583400398E92 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				73BC5D2C25AE561F00398E92 /* Character.swift */,
+				73BC5D3125AE57C300398E92 /* Player.swift */,
+				73BC5D3A25AE584B00398E92 /* Enemy.swift */,
+				73BE838025B792CA009D9810 /* CandyNode.swift */,
+				73D6AFCD25CB4D5500E719D4 /* PlayerNode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		73BC5D3F25AE598F00398E92 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7348E46125807B85000BE321 /* GameScene.swift */,
+				73BC5D4325AE59A900398E92 /* MainMenu.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		73D6AFD725CB542900E719D4 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				73D6AFD825CB547E00E719D4 /* IdleState.swift */,
+				73F9113C25CDC6430034F9AF /* AttackState.swift */,
+				73F9114125CDCC420034F9AF /* DamageState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		73D6AFE825CB8E4600E719D4 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				73D6AFE325CB8E3400E719D4 /* PlayerOneActions.sks */,
+				73D6AFE925CB901700E719D4 /* PreviewScene.sks */,
+				7348E45F25807B85000BE321 /* Actions.sks */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
 		73E4258E258FE8D600606699 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +248,12 @@
 				73E4259E2590065700606699 /* Launch Screen.storyboard */,
 				7348E46A25807B86000BE321 /* Info.plist */,
 				7348E46525807B85000BE321 /* Main.storyboard */,
+				73BE838A25B7943E009D9810 /* MainMenu.storyboard */,
+				73D6AFD225CB4E6400E719D4 /* ControlInputSourceDelagate.swift */,
+				73D6AFDE25CB5FA500E719D4 /* PhysicsDetection.swift */,
+				733832B725CB9F6E00139142 /* GraveyardTileSet.sks */,
+				73F9113225CD035F0034F9AF /* Hurtbox.swift */,
+				73F9113725CD03F10034F9AF /* Hitbox.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -162,6 +262,13 @@
 			isa = PBXGroup;
 			children = (
 				7348E46325807B85000BE321 /* GameViewController.swift */,
+				73BE838525B793EF009D9810 /* MainMenuController.swift */,
+				73F41E0325C687CA00845EC4 /* TouchController.swift */,
+				73D6AFC825CB3F5A00E719D4 /* PlayerController.swift */,
+				73D6AFF425CB95C000E719D4 /* AnimationController.swift */,
+				73F9112A25CCD14A0034F9AF /* ParallaxController.swift */,
+				73F9114625CDD8790034F9AF /* AttackController.swift */,
+				73F9114B25CDD8F60034F9AF /* EnemyController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -270,8 +377,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7348E46725807B85000BE321 /* Main.storyboard in Resources */,
+				73D6AFE425CB8E3400E719D4 /* PlayerOneActions.sks in Resources */,
+				73D6AFEA25CB901700E719D4 /* PreviewScene.sks in Resources */,
 				7348E45E25807B85000BE321 /* GameScene.sks in Resources */,
+				73CC08EE25CDEDCB00D5F074 /* Enemy.xcassets in Resources */,
+				73BE838B25B7943E009D9810 /* MainMenu.storyboard in Resources */,
 				7348E46925807B86000BE321 /* Assets.xcassets in Resources */,
+				733832B925CB9F6E00139142 /* GraveyardTileSet.sks in Resources */,
 				73E4259F2590065700606699 /* Launch Screen.storyboard in Resources */,
 				7348E46025807B85000BE321 /* Actions.sks in Resources */,
 			);
@@ -299,8 +411,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				7348E46225807B85000BE321 /* GameScene.swift in Sources */,
+				73F41E0425C687CA00845EC4 /* TouchController.swift in Sources */,
+				73F9114225CDCC420034F9AF /* DamageState.swift in Sources */,
+				73D6AFCE25CB4D5500E719D4 /* PlayerNode.swift in Sources */,
 				7348E46425807B85000BE321 /* GameViewController.swift in Sources */,
+				73BC5D4425AE59A900398E92 /* MainMenu.swift in Sources */,
+				73D6AFDF25CB5FA500E719D4 /* PhysicsDetection.swift in Sources */,
+				73F9112B25CCD14A0034F9AF /* ParallaxController.swift in Sources */,
+				73BC5D3B25AE584B00398E92 /* Enemy.swift in Sources */,
 				7348E45C25807B85000BE321 /* AppDelegate.swift in Sources */,
+				73D6AFF525CB95C000E719D4 /* AnimationController.swift in Sources */,
+				73F9113325CD035F0034F9AF /* Hurtbox.swift in Sources */,
+				73F9114C25CDD8F60034F9AF /* EnemyController.swift in Sources */,
+				73BE838125B792CA009D9810 /* CandyNode.swift in Sources */,
+				73BC5D3225AE57C300398E92 /* Player.swift in Sources */,
+				73F9113D25CDC6430034F9AF /* AttackState.swift in Sources */,
+				73BC5D2D25AE561F00398E92 /* Character.swift in Sources */,
+				73D6AFC925CB3F5A00E719D4 /* PlayerController.swift in Sources */,
+				73D6AFD925CB547E00E719D4 /* IdleState.swift in Sources */,
+				73F9113825CD03F10034F9AF /* Hitbox.swift in Sources */,
+				73F9114725CDD8790034F9AF /* AttackController.swift in Sources */,
+				73D6AFD325CB4E6400E719D4 /* ControlInputSourceDelagate.swift in Sources */,
+				73BE838625B793EF009D9810 /* MainMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
