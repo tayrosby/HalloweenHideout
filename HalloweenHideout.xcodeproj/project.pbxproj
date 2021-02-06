@@ -25,6 +25,7 @@
 		73BE838625B793EF009D9810 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE838525B793EF009D9810 /* MainMenuController.swift */; };
 		73BE838B25B7943E009D9810 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73BE838A25B7943E009D9810 /* MainMenu.storyboard */; };
 		73CC08EE25CDEDCB00D5F074 /* Enemy.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */; };
+		73CC08F325CE528300D5F074 /* ScreenShake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC08F225CE528300D5F074 /* ScreenShake.swift */; };
 		73D6AFC925CB3F5A00E719D4 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFC825CB3F5A00E719D4 /* PlayerController.swift */; };
 		73D6AFCE25CB4D5500E719D4 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFCD25CB4D5500E719D4 /* PlayerNode.swift */; };
 		73D6AFD325CB4E6400E719D4 /* ControlInputSourceDelagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D6AFD225CB4E6400E719D4 /* ControlInputSourceDelagate.swift */; };
@@ -88,6 +89,7 @@
 		73BE838525B793EF009D9810 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		73BE838A25B7943E009D9810 /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Enemy.xcassets; sourceTree = "<group>"; };
+		73CC08F225CE528300D5F074 /* ScreenShake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShake.swift; sourceTree = "<group>"; };
 		73D6AFC825CB3F5A00E719D4 /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		73D6AFCD25CB4D5500E719D4 /* PlayerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		73D6AFD225CB4E6400E719D4 /* ControlInputSourceDelagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlInputSourceDelagate.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				733832B725CB9F6E00139142 /* GraveyardTileSet.sks */,
 				73F9113225CD035F0034F9AF /* Hurtbox.swift */,
 				73F9113725CD03F10034F9AF /* Hitbox.swift */,
+				73CC08F225CE528300D5F074 /* ScreenShake.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				73BC5D4425AE59A900398E92 /* MainMenu.swift in Sources */,
 				73D6AFDF25CB5FA500E719D4 /* PhysicsDetection.swift in Sources */,
 				73F9112B25CCD14A0034F9AF /* ParallaxController.swift in Sources */,
+				73CC08F325CE528300D5F074 /* ScreenShake.swift in Sources */,
 				73BC5D3B25AE584B00398E92 /* Enemy.swift in Sources */,
 				7348E45C25807B85000BE321 /* AppDelegate.swift in Sources */,
 				73D6AFF525CB95C000E719D4 /* AnimationController.swift in Sources */,

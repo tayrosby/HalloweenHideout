@@ -11,9 +11,23 @@ import GameplayKit
 class DamageState : GKState {
     
     var pNode:PlayerNode?
+    var cameraNode: SKCameraNode?
     
     init(with node: PlayerNode) {
         self.pNode = node
+    }
+    
+    override func didEnter(from previousState: GKState?) {
+        if cameraNode == nil {
+            if let mainScene = pNode?.parent as? SKScene {
+                cameraNode = mainScene.camera!
+            }
+        }
+        
+        if cameraNode != nil {
+            let shake = SKAction.shake(initialPosition: (cameraNode?.position)!, duration: 0.8, amplitudeX: 16, amplitudeY: 16)
+            cameraNode?.run(shake)
+        }
     }
     
     override func update(deltaTime seconds: TimeInterval) {

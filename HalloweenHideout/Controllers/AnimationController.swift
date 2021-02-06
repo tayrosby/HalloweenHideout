@@ -53,9 +53,9 @@ class AnimationController : GKComponent {
             }
         }
         
-        if (pNode?.grounded)! && ((pNode?.physicsBody?.velocity.dy)! < -20.0) {
-            pNode?.grounded = false
-        }
+       // if (pNode?.grounded)! && ((pNode?.physicsBody?.velocity.dy)! < -20.0) {
+           // pNode?.grounded = false
+        //}
         
         if pNode?.state?.currentState is IdleState {
             if (pNode?.grounded)! {
