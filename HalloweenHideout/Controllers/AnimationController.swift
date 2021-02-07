@@ -16,7 +16,7 @@ class AnimationController : GKComponent {
     var actions = [String : SKAction]()
     var actionNames : [String : String] = [
         "Idle":"Idle", "Run":"Run", "Jump":"Jump","Faliing":"Falling","Damage":"Damage",
-        "Attack":"Attack"
+        "Attack":"Attack", "Dead":"Dead"
     ]
     
     static private var secureCoding = true
@@ -35,7 +35,7 @@ class AnimationController : GKComponent {
         }
         
         for name in actionNames {
-            if name.key == "Idle" || name.key == "Damage" {
+            if name.key == "Idle" || name.key == "Damage" || name.key == "Dead" {
                 actionNames[name.key] = "\(prefix)\(name.value)"
             }
             
@@ -47,22 +47,22 @@ class AnimationController : GKComponent {
     
     override func update(deltaTime seconds: TimeInterval) {
         
+        super.update(deltaTime: seconds)
         if pNode == nil {
             if let nodeComponent = self.entity?.component(ofType: GKSKNodeComponent.self) {
                 pNode = nodeComponent.node as? PlayerNode
             }
         }
         
-       // if (pNode?.grounded)! && ((pNode?.physicsBody?.velocity.dy)! < -20.0) {
-           // pNode?.grounded = false
-        //}
+        if (pNode?.grounded)! && ((pNode?.physicsBody?.velocity.dy)! < -20.0) {
+            pNode?.grounded = false
+        }
         
         if pNode?.state?.currentState is IdleState {
             if (pNode?.grounded)! {
                 if (pNode?.left)! || (pNode?.right)! {
                     playAnimation(with: "Run")
-                }
-             else {
+                } else {
                 playAnimation(with: "Idle")
             }
         } else {
@@ -78,7 +78,13 @@ class AnimationController : GKComponent {
             playAnimation(with: "Attack")
 
         } else if pNode?.state?.currentState is DamageState {
-            playAnimation(with: "Damage")
+            if pNode?.dead == true {
+                playAnimation(with: "Dead")
+            } else {
+                playAnimation(with: "Damage")
+                
+            }
+            
         }
 }
 

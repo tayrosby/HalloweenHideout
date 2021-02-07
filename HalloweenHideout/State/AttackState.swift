@@ -11,7 +11,7 @@ import GameplayKit
 class AttackState : GKState {
     var pNode : PlayerNode?
     
-    var activeTime = 1.1
+    var activeTime = 0.4
     private var lastUpdateTime : TimeInterval = 0
     
     
@@ -29,7 +29,7 @@ class AttackState : GKState {
         
         if activeTime >= 0 {
             activeTime = activeTime - lastUpdateTime
-            if (activeTime <= 1.0 && activeTime >= 0.1) {
+            if (activeTime <= 0.3 && activeTime >= 0.1) {
                 if (pNode?.hitBox == nil) {
                     pNode?.setHitbox(size: CGSize(width: 25, height: 30))
                     pNode?.hitBox?.xHit = 2.0 * -(pNode?.facing)!
@@ -46,7 +46,7 @@ class AttackState : GKState {
         } else {
             pNode?.attack = false
             stateMachine?.enter(IdleState.self)
-            activeTime = 1.1
+            activeTime = 0.4
         }
         
         self.lastUpdateTime = seconds

@@ -1,14 +1,14 @@
 //
-//  AttackController.swift
+//  CandyController.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 2/5/21.
+//  Created by Taylor Austin on 2/6/21.
 //
 
-import SpriteKit
 import GameplayKit
+import SpriteKit
 
-class AttackController : GKComponent {
+class CandyController : GKComponent {
     static private var secureCoding = true
     var pNode : PlayerNode?
     
@@ -23,16 +23,13 @@ class AttackController : GKComponent {
         if pNode?.state?.currentState is AttackState {
             if pNode?.hitBox != nil {
                 if let scene = pNode?.parent as! GameScene? {
-                    for enemy in scene.enemies {
-                        if (pNode?.hitBox?.intersects((enemy.hurtBox)!))! {
-                            if !(pNode?.hitBox?.ignoreList.contains((enemy.hurtBox)!))! {
-                                pNode?.hitBox?.ignoreList.append((enemy.hurtBox)!)
-                                enemy.hitBY = pNode?.hitBox
-                                enemy.hit = true
-                                enemy.health = 0.0
-                                if enemy.health == 0.0 {
-                                    enemy.dead = true
-                                }
+                    for candy in scene.candies {
+                        if (pNode?.hitBox?.intersects((candy.hurtBox)!))! {
+                            if !(pNode?.hitBox?.ignoreList.contains((candy.hurtBox)!))! {
+                                pNode?.hitBox?.ignoreList.append((candy.hurtBox)!)
+                                candy.hitBY = pNode?.hitBox
+                                candy.collected = true
+                                candy.removeFromParent()
                                 
                             }
                         }
@@ -43,5 +40,4 @@ class AttackController : GKComponent {
     }
     
     override public class var supportsSecureCoding: Bool { return secureCoding }
-    
 }

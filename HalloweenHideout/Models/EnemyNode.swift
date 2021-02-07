@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Enemy: Character {
+class EnemyNode {
     
     var enemyType = ""
     

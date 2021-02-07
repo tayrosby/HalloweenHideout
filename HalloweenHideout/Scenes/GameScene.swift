@@ -12,10 +12,11 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var enemies = [PlayerNode]()
+    var candies = [CandyNode]()
     var graphs = [String : GKGraph]()
     var physicsDelagate = PhysicsDetection()
     var player : PlayerNode?
-    //var candy = SKSpriteNode()
+    var candy : CandyNode?
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -38,7 +39,19 @@ class GameScene: SKScene {
             component.prepareWith(camera: camera!)
         }
         
-//        candy = (self.childNode(withName: "Candy") as? SKSpriteNode)!
+        if let theCandy = self.childNode(withName: "Candy") {
+            candy = theCandy as? CandyNode
+            if (candy != nil) {
+                candy?.candyValue = 5
+                candy?.createPhysics()
+                candy?.setHurtbox(size: CGSize(width: 15, height: 15))
+            }
+        }
+        
+//        if let candyLabel = camera?.childNode(withName: "CandyLabel") as? SKLabelNode {
+//            updateCandyLabel(label: candyLabel)
+//        }
+        
         
         if let thePlayer = childNode(withName: "Player") {
             player = thePlayer as? PlayerNode
@@ -60,14 +73,21 @@ class GameScene: SKScene {
 
     }
     
-//    func didBegan(_ contact: SKPhysicsContact) {
-//        candy.name = "Candy"
-//
-//        if contact.bodyA.node?.name == "Player" && contact.bodyB.node?.name == "Candy" {
-//            candy.removeFromParent()
-//            print("candy removed")
-//        }
-//    }
+    func updateCandyLabel(label: SKLabelNode){
+        
+        let candyLabel = label
+        
+        print(candy?.collected)
+        
+        if (candy?.collected == true) {
+            candy?.candyAmount = (candy?.candyAmount)! + (candy?.candyValue)!
+            
+            candyLabel.text = "\(candy?.candyAmount ?? 0)"
+            //candy?.removeFromParent()
+            //candy?.collected = false
+        }
+    }
+    
     
     func giveTileMapPhysics(map: SKTileMapNode) {
         let tileMap = map
@@ -102,6 +122,7 @@ class GameScene: SKScene {
                         tileNode.physicsBody?.fieldBitMask = 0
                         tileNode.physicsBody?.collisionBitMask = 0
                         
+                        //makes it so no fall through ground
                         if (isEdgeTile == 1) {
                             tileNode.physicsBody?.restitution = 0.0
                             tileNode.physicsBody?.contactTestBitMask = ColliderType.PLAYER
@@ -132,7 +153,11 @@ class GameScene: SKScene {
         if (self.lastUpdateTime == 0) {
             self.lastUpdateTime = currentTime
         }
-
+        
+        if let candyLabel = camera?.childNode(withName: "CandyLabel") as? SKLabelNode {
+            updateCandyLabel(label: candyLabel)
+            candy?.collected = false
+        }
         
         //calculate time since last update
         let dt = currentTime - self.lastUpdateTime

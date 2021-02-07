@@ -27,6 +27,7 @@ class IdleState : GKState {
             dSpeed = pNode.airDecel
         }
         
+        //movement
         if pNode.left {
             pNode.facing = -1.0
             pNode.xScale = -1.0
@@ -39,6 +40,7 @@ class IdleState : GKState {
             pNode.hSpeed = approach(start: pNode.hSpeed, end: 0.0, shift: dSpeed)
         }
         
+        //jump
         if (pNode.grounded) {
             if !pNode.landed {
                 //squashAndStretch(xScale: 1.3, yScale: 0.7)
@@ -54,6 +56,7 @@ class IdleState : GKState {
             }
         }
         
+        //jump
         if(!pNode.grounded) {
             if (pNode.physicsBody?.velocity.dy)! < CGFloat(0.0) {
                 pNode.physicsBody?.categoryBitMask = ColliderType.PLAYER
@@ -66,10 +69,12 @@ class IdleState : GKState {
             pNode.landed = false
         }
         
+        //attack
         if(pNode.attack) {
             self.stateMachine?.enter(AttackState.self)
         }
         
+        //collision detection - enemy
         if(pNode.hit){
             squashAndStretch(xScale: 1.3, yScale: 1.3)
             pNode.hSpeed = (pNode.hitBY?.xHit)!

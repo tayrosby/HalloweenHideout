@@ -118,29 +118,4 @@ class GameViewController: UIViewController {
 //       // playerPosition = position
 //    }
 }
-    
-    //    //sets the default size of the scene
-//    let scene = GameScene(size: CGSize(width: 2436, height: 1125))
-//
-//    /*
-//     loads the scene
-//     */
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        //maps the scene to the presentation view
-//        scene.scaleMode  = .aspectFit
-//
-//        let skView = view as! SKView
-//        //shows the frames per second
-//        skView.showsFPS = true
-//
-//        //shows the amount of nodes
-//        skView.showsNodeCount = true
-//        skView.showsPhysics = true
-//        skView.ignoresSiblingOrder = true
-//        skView.presentScene(scene)
-//
-//}
-//
 

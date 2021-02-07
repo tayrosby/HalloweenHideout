@@ -13,6 +13,12 @@ class EnemyController : GKComponent {
     static private var secureCoding = true
     var pNode : PlayerNode?
     
+    func isDead(health : CGFloat) {
+        if pNode?.health == 0.0 {
+            pNode?.dead = true;
+        }
+    }
+    
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
         

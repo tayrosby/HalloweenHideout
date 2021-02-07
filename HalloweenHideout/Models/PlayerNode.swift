@@ -2,7 +2,7 @@
 //  PlayerNode.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 2/3/21.
+//  Created by Taylor Austin on 1/12/21.
 //
 
 import SpriteKit
@@ -19,17 +19,19 @@ class PlayerNode : SKSpriteNode {
     
     var attack = false
     
+    var dead = false
+    
     var maxJump : CGFloat = 15.0
     
     var health : CGFloat = 6.0
-    var candyAmount : CGFloat = 0.0
+    var candyAmount : CGFloat = 5.0
     
     var airAccel : CGFloat = 0.1
     var airDecel : CGFloat = 0.0
     var groundAccel : CGFloat = 0.2
     var groundDecel : CGFloat = 0.5
     
-    var facing : CGFloat = 0.0
+    var facing : CGFloat = 1.0
     
     var hSpeed:CGFloat = 0.0
     
@@ -74,7 +76,8 @@ class PlayerNode : SKSpriteNode {
         physicsBody?.allowsRotation = false
         physicsBody?.restitution = 0.0
         physicsBody?.friction = 0.0
-        physicsBody?.categoryBitMask = ColliderType.PLAYER
-        physicsBody?.collisionBitMask = ColliderType.GROUND
+        physicsBody?.categoryBitMask = 1
+        physicsBody?.collisionBitMask = 6
+        physicsBody?.contactTestBitMask = 4
     }
 }

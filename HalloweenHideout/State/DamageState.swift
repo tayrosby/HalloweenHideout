@@ -39,7 +39,9 @@ class DamageState : GKState {
         if (pNode?.hitStun)! <= 0 {
             pNode?.hSpeed = 0
             pNode?.physicsBody?.velocity.dx = 0.0
-            self.stateMachine?.enter(IdleState.self)
+            if pNode?.dead == false {
+                self.stateMachine?.enter(IdleState.self)
+            } 
         }
         
         pNode?.xScale = approach(start: (pNode?.xScale)!, end: (pNode?.facing)!, shift: 0.07)
