@@ -2,7 +2,6 @@
 //  GameViewController.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 12/8/20.
 //
 
 import UIKit

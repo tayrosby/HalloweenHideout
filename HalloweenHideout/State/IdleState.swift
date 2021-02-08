@@ -2,7 +2,6 @@
 //  IdleState.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 2/3/21.
 //
 
 import GameplayKit
@@ -11,14 +10,21 @@ class IdleState : GKState {
     
     var pNode:PlayerNode
     
+    /**
+     initalizes player node
+     */
     init(with node: PlayerNode) {
         self.pNode = node
     }
     
+    /**
+     update the frames
+     */
     override func update(deltaTime seconds: TimeInterval) {
         var aSpeed: CGFloat = 0.0
         var dSpeed: CGFloat = 0.0
         
+        //sets the ground and air movement
         if(pNode.grounded) {
             aSpeed = pNode.groundAccel
             dSpeed = pNode.groundDecel
@@ -91,6 +97,9 @@ class IdleState : GKState {
         pNode.position.x = pNode.position.x + pNode.hSpeed
     }
     
+    /**
+     node speed
+     */
     func approach(start: CGFloat, end: CGFloat, shift: CGFloat) -> CGFloat{
         if(start < end) {
             return min(start + shift, end)
@@ -99,6 +108,9 @@ class IdleState : GKState {
         }
     }
     
+    /**
+     size scale
+     */
     func squashAndStretch(xScale: CGFloat, yScale: CGFloat) {
         pNode.xScale = xScale * pNode.facing
         pNode.yScale = yScale

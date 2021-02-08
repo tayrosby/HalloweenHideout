@@ -2,7 +2,6 @@
 //  GameScene.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 12/8/20.
 //
 
 import SpriteKit
@@ -12,7 +11,6 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var enemies = [PlayerNode]()
-    var candies = [CandyNode]()
     var graphs = [String : GKGraph]()
     var physicsDelagate = PhysicsDetection()
     var player : PlayerNode?
@@ -22,63 +20,81 @@ class GameScene: SKScene {
     
     var parallaxSystem: GKComponentSystem<ParallaxController>?
     
-    
+    //load the scene
     override func sceneDidLoad() {
         self.lastUpdateTime = 0
     }
     
+    /**
+     tells when the scene is presented
+     */
     override func didMove(to view: SKView) {
         
+        //sets the parallax system
         parallaxSystem = GKComponentSystem.init(componentClass: ParallaxController.self)
         
+        //adds parallax to the entites
         for entity in self.entities {
             parallaxSystem?.addComponent(foundIn: entity)
         }
         
+        //prepares the camera for parallax
         for component in (parallaxSystem?.components)! {
             component.prepareWith(camera: camera!)
         }
         
+        //if the node in gamescene == candy set as candy node
         if let theCandy = self.childNode(withName: "Candy") {
             candy = theCandy as? CandyNode
+            //if candy exists
             if (candy != nil) {
+                //sets value
                 candy?.candyValue = 5
+                //creates candy physics
                 candy?.createPhysics()
-                candy?.setHurtbox(size: CGSize(width: 15, height: 15))
             }
         }
         
-//        if let candyLabel = camera?.childNode(withName: "CandyLabel") as? SKLabelNode {
-//            updateCandyLabel(label: candyLabel)
-//        }
-        
-        
+        //if the node in gamescene == player set as player node
         if let thePlayer = childNode(withName: "Player") {
             player = thePlayer as? PlayerNode
+            //if player exists
             if (player != nil) {
+                //sets state
                 player?.setUpStatemachine()
+                //creates player physics
                 player?.createPhysics()
+                //set hurtbox
                 player?.setHurtbox(size: CGSize(width: 25, height: 50))
             }
+            
+            //prepare the camera with the controls
             if let poComponent = thePlayer.entity?.component(ofType: PlayerController.self){
                 poComponent.setUpControls(camera: camera!, scene: self)
             }
         }
         
+        //create tile map
         if let tileMap = childNode(withName: "ForegroundMap") as? SKTileMapNode {
             giveTileMapPhysics(map: tileMap)
         }
         
+        //calls physics detector
         self.physicsWorld.contactDelegate = physicsDelagate
 
     }
     
+    /**
+     updates the candy level
+     */
     func updateCandyLabel(label: SKLabelNode){
+        
         
         let candyLabel = label
         
-        print(candy?.collected)
+        //print(candy?.collected)
         
+        //if collected == true update the label
         if (candy?.collected == true) {
             candy?.candyAmount = (candy?.candyAmount)! + (candy?.candyValue)!
             
@@ -88,10 +104,13 @@ class GameScene: SKScene {
         }
     }
     
-    
+    /**
+     gives the tile map physics
+     */
     func giveTileMapPhysics(map: SKTileMapNode) {
         let tileMap = map
         
+        //size
         let tileSize = tileMap.tileSize
         let halfWidth = CGFloat(tileMap.numberOfColumns) / 2.0 * tileSize.width
         let halfHeight = CGFloat(tileMap.numberOfRows) / 2.0 * tileSize.height
@@ -110,7 +129,10 @@ class GameScene: SKScene {
                         
                         tileNode.position = CGPoint(x: x, y: y)
                         
+                        //gives tiles a physics body
                         tileNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: (tileTexture.size().width), height: (tileTexture.size().height)))
+                        
+                        //physics body settings
                         tileNode.physicsBody?.linearDamping = 0
                         tileNode.physicsBody?.affectedByGravity = false
                         tileNode.physicsBody?.allowsRotation = false
@@ -122,12 +144,13 @@ class GameScene: SKScene {
                         tileNode.physicsBody?.fieldBitMask = 0
                         tileNode.physicsBody?.collisionBitMask = 0
                         
-                        //makes it so no fall through ground
+                        //edge cases
                         if (isEdgeTile == 1) {
                             tileNode.physicsBody?.restitution = 0.0
                             tileNode.physicsBody?.contactTestBitMask = ColliderType.PLAYER
                         }
                         
+                        //assures player doesnt fall through floor
                         tileNode.physicsBody?.categoryBitMask = ColliderType.GROUND
                         tileMap.addChild(tileNode)
                     }
@@ -136,16 +159,23 @@ class GameScene: SKScene {
         }
     }
     
-    
+    /**
+     focuses the camera on the player
+     */
     func centerOnNode(node: SKNode) {
         self.camera!.run(SKAction.move(to: CGPoint(x: node.position.x, y: node.position.y), duration: 0.5))
     }
     
+    /**
+     updates the frame
+     */
     override func didFinishUpdate() {
         centerOnNode(node: player!)
     }
     
-    
+    /**
+     updates the frames
+     */
     override func update(_ currentTime: TimeInterval) {
         //called before each frame is rendered
         
@@ -154,6 +184,7 @@ class GameScene: SKScene {
             self.lastUpdateTime = currentTime
         }
         
+        //updates the candy labe;
         if let candyLabel = camera?.childNode(withName: "CandyLabel") as? SKLabelNode {
             updateCandyLabel(label: candyLabel)
             candy?.collected = false
@@ -167,6 +198,7 @@ class GameScene: SKScene {
             entity.update(deltaTime: dt)
         }
         
+        //updates the packground system
         parallaxSystem?.update(deltaTime: currentTime)
         
         self.lastUpdateTime = currentTime

@@ -2,7 +2,6 @@
 //  ParallaxController.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 2/4/21.
 //
 
 import GameplayKit
@@ -19,17 +18,23 @@ class ParallaxController : GKComponent{
     var dY : CGFloat = 1.2
     var previousPosition: CGPoint?
     
+   /**
+     prepare the background with the camera
+     */
     func prepareWith(camera: SKCameraNode) {
         
+        //set camera position
         if camera != nil {
             self.camera = camera
             previousPosition = camera.position
         }
         
+        //sets the node
         if let nodeComponent = self.entity?.component(ofType: GKSKNodeComponent.self) {
             node = nodeComponent.node
         }
         
+        //set x and y depending on layer
         switch layer {
         case 1:
             dX = 15
@@ -58,9 +63,13 @@ class ParallaxController : GKComponent{
         
     }
     
+    /**
+     update the frames
+     */
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
         
+        //set the camera posistion
         let difX = ((camera?.position.x)! - (previousPosition?.x)!) / dX
         let difY = ((camera?.position.y)! - (previousPosition?.y)!) / dY
         

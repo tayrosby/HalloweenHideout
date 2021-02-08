@@ -2,12 +2,13 @@
 //  Hitbox.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 2/4/21.
 //
 
 import SpriteKit
 
 class Hitbox : SKSpriteNode {
+    
+    //hitbox attributes
     
     var image_alpha : CGFloat = 0.5
     var xOffset : CGFloat = 20.0

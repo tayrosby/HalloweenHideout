@@ -2,12 +2,15 @@
 //  ScreenShake.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 2/5/21.
 //
 
 import SpriteKit
 
 extension SKAction {
+    
+    /**
+     shakes the screen when the enemy takes damage
+     */
     class func shake(initialPosition: CGPoint, duration: Float, amplitudeX: Int = 12, amplitudeY: Int = 3) -> SKAction {
         let startingX = initialPosition.x
         let startingY = initialPosition.y
@@ -20,6 +23,8 @@ extension SKAction {
             actionsArray.append(SKAction.move(to: CGPoint(x: newXPos, y: newYPos), duration: 0.015))
         }
         actionsArray.append(SKAction.move(to: initialPosition, duration: 0.015))
+        
+        //runs the actions
         return SKAction.sequence(actionsArray)
     }
 }
