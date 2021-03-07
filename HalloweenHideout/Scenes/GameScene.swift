@@ -11,10 +11,14 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var enemies = [PlayerNode]()
+    var candies = [CandyNode]()
     var graphs = [String : GKGraph]()
     var physicsDelagate = PhysicsDetection()
     var player : PlayerNode?
     var candy : CandyNode?
+    var aLabel : SKLabelNode?
+    var bLabel : SKLabelNode?
+    var walkLabel :SKLabelNode?
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -55,6 +59,38 @@ class GameScene: SKScene {
             }
         }
         
+        //creates pop up for the jump label
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.aLabel = self.childNode(withName: "A_label") as? SKLabelNode
+            if let aLabel = self.aLabel {
+                aLabel.text = "Press the a button to jump"
+                aLabel.run(SKAction.fadeIn(withDuration: 4.0))
+                aLabel.run(SKAction.fadeOut(withDuration: 4.0))
+            }
+        }
+        
+        //creates pop up for the attack label
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+            self.bLabel = self.childNode(withName: "B_Label") as? SKLabelNode
+            if let bLabel = self.bLabel {
+                bLabel.text = "Press the b button to attack"
+                bLabel.run(SKAction.fadeIn(withDuration: 4.0))
+                bLabel.isHidden = false
+                bLabel.run(SKAction.fadeOut(withDuration: 4.0))
+            }
+        }
+        
+        //creates pop up for the run label
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            self.walkLabel = self.childNode(withName: "Walk_label") as? SKLabelNode
+            if let walkLabel = self.walkLabel {
+                walkLabel.text = "Press the arrows button to run"
+                walkLabel.run(SKAction.fadeIn(withDuration: 4.0))
+                walkLabel.isHidden = false
+                walkLabel.run(SKAction.fadeOut(withDuration: 4.0))
+            }
+        }
+
         //if the node in gamescene == player set as player node
         if let thePlayer = childNode(withName: "Player") {
             player = thePlayer as? PlayerNode

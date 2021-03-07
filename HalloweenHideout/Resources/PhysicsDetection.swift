@@ -30,7 +30,7 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             }
         }
         
-        let collision2: UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let collision2: UInt32 = 10
         if collision2 == ColliderType.PLAYER | ColliderType.CANDY {
             //sets collected to true if collision between player and candy happened and removes candy from scene
             if let candy = contact.bodyA.node as? CandyNode {

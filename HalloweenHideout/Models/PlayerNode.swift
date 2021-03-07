@@ -13,6 +13,8 @@ class PlayerNode : SKSpriteNode {
     var left = false
     var right = false
     
+    var character  = ""
+    
     var jump = false
     var landed = false
     var grounded = false
@@ -24,7 +26,13 @@ class PlayerNode : SKSpriteNode {
     var maxJump : CGFloat = 15.0
     
     var health : CGFloat = 6.0
-    var candyAmount : CGFloat = 5.0
+    var candyAmount : CGFloat = 10.0
+    
+    var costume : Costume?
+    
+    var levelsCompleted : Int = 0
+    
+    var ownedCostumes: [Costume] = [Costume.list.default_costume]
     
     //movement
     var airAccel : CGFloat = 0.1
@@ -50,6 +58,69 @@ class PlayerNode : SKSpriteNode {
     
     //player state
     var state:GKStateMachine?
+    
+    init(costume: Costume) {
+        self.costume = costume
+        super.init(texture: costume.texture, color: .clear, size: costume.texture.size())
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    /**
+     increases the amount of candy a user has
+     */
+    func getCandy(_ amount: CGFloat) {
+        
+//        guard let scene = self.scene as? GameScene else {
+//            fatalError()
+//        }
+        
+        self.candyAmount += amount
+    }
+    
+    /**
+     decreases the amount of candy a user has
+     */
+    func loseCandy(_ amount: CGFloat) {
+//        guard let scene = self.scene as? GameScene else {
+//            fatalError()
+//        }
+        
+        self.candyAmount -= amount
+    }
+    
+    /**
+     checks if the user has the costume
+     */
+    func hasCostume(_ costume: Costume) -> Bool {
+        if ownedCostumes.contains(where: {$0.name == costume.name}) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    /**
+     adds bought costume to the list of costumes a user owns
+     */
+    func getCostume(_ costume:Costume) {
+        if hasCostume(costume) {
+            fatalError()
+        } else {
+            ownedCostumes.append(costume)
+        }
+    }
+    
+    /**
+     allows the user to wear the costume
+     */
+    func wearCostume(_ costume:Costume) {
+        guard hasCostume(costume) else { fatalError() }
+        self.costume = costume
+        self.texture = costume.texture
+    }
     
     /**
      set up hurtboxes
