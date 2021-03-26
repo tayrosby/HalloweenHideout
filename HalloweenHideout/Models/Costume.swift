@@ -28,7 +28,7 @@ class Costume {
         evil_wizard: Costume(name: "Evil Wizard", texture: SKTexture(imageNamed: ""), price: 25, description: "evil wizard"),
         eviler_wizard: Costume(name: "Eviler Wizard", texture: SKTexture(imageNamed: ""), price: 25, description: "eviler wizard"),
         fantasy_warrior: Costume(name: "Fanatsy Warrior", texture: SKTexture(imageNamed: ""), price: 50, description: "fantasy warrior"),
-        default_costume: Costume(name: "default", texture: SKTexture(imageNamed: ""), price: 50, description: "default")
+        default_costume: Costume(name: "default", texture: SKTexture(imageNamed: "1_Fallen_Angels_Idle Blinking_000"), price: 50, description: "default")
     )
     
     static let defaultCostume = list.default_costume

@@ -13,26 +13,6 @@ class CandyNode : SKSpriteNode {
     var candyAmount : CGFloat = 0.0
     var candyValue : CGFloat = 0.0
     
-    var hitBox : Hitbox?
-       var hurtBox : Hurtbox?
-       var hitBY : Hitbox?
-
-       func setHitbox(size: CGSize) {
-           hitBox = Hitbox(color: .red, size: size)
-           hitBox?.position = CGPoint(x: (hitBox?.xOffset)!, y: (hitBox?.yOffset)!)
-           hitBox?.alpha = (hitBox?.image_alpha)!
-           hitBox?.zPosition = 50
-           self.addChild(hitBox!)
-       }
-
-       func setHurtbox(size: CGSize) {
-           hurtBox = Hurtbox(color: .green, size: size)
-           hurtBox?.position = CGPoint(x: (hurtBox?.xOffset)!, y: (hurtBox?.yOffset)!)
-           hurtBox?.alpha = (hurtBox?.image_alpha)!
-           hurtBox?.zPosition = 50
-           self.addChild(hurtBox!)
-       }
-    
     /**
      gives the candy physics
      */

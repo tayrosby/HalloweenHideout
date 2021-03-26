@@ -25,6 +25,8 @@ class ShopScene: SKScene{
     
     var previousGameScene: GameScene?
     
+    var mainMenu: MainMenu?
+    
     var player : PlayerNode? { return self.previousGameScene?.player }
     var costumeNodes = [CostumeNode]()
     
@@ -36,7 +38,7 @@ class ShopScene: SKScene{
         return self.costumeNodes.first!
     }()
     
-    var allCostumes: [Costume] = [ Costume(name: "Evil Wizard", texture: SKTexture(imageNamed: "1_Fallen_Angels_Falling Down_000"), price: 25, description: "evil wizard")    ]
+    var allCostumes: [Costume] = [ Costume(name: "Evil Wizard", texture: SKTexture(imageNamed: "evil_wizard_idle0"), price: 25, description: "evil wizard"), Costume(name: "Eviler Wizard", texture: SKTexture(imageNamed: "eviler_wizard_idle_0"), price: 25, description: "eviler wizard")]
     
     /**
      sets up the nodes for the scene
@@ -76,7 +78,7 @@ class ShopScene: SKScene{
                 let textureWidth = Costume.list.default_costume.texture.size().width
                 let totalWidth = (textureWidth * count) + totalOffsets
                 
-                let measurementNode = SKShapeNode(rectOf: CGSize(width: totalWidth, height: 0))
+                let measurementNode = SKShapeNode(rectOf: CGSize(width: totalWidth/2, height: 0))
                 
                 return CGPoint(x: measurementNode.frame.minX + textureWidth/2, y: yPos)
             }
@@ -162,7 +164,7 @@ class ShopScene: SKScene{
                 return
             case is SKLabelNode:
                 //leaves the store
-                if touchedNode.name == "exitNode" { view!.presentScene(previousGameScene)}
+                if touchedNode.name == "exitNode" { view!.presentScene(mainMenu)}
                 
                 //buys the costume
                 if touchedNode.name == "buyNode" {
