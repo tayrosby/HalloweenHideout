@@ -182,6 +182,6 @@ class PlayerNode : SKSpriteNode {
         //sets collision and contact settings
         physicsBody?.categoryBitMask = 1
         physicsBody?.collisionBitMask = 6
-        physicsBody?.contactTestBitMask = 4
+        physicsBody?.contactTestBitMask = 5
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		731A2C4925EF513B007A260A /* ShopScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 731A2C4825EF513B007A260A /* ShopScene.sks */; };
 		731A2C4E25EF52CE007A260A /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A2C4D25EF52CE007A260A /* ShopScene.swift */; };
+		73266D3B26168B3A00E8116B /* SignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73266D3A26168B3A00E8116B /* SignNode.swift */; };
 		733832B925CB9F6E00139142 /* GraveyardTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 733832B725CB9F6E00139142 /* GraveyardTileSet.sks */; };
 		7343527425EED37300F699A8 /* CharacterSelect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7343527325EED37300F699A8 /* CharacterSelect.sks */; };
 		7346B29125F33D1C001D6AA2 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B29025F33D1C001D6AA2 /* Shop.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		731A2C4825EF513B007A260A /* ShopScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShopScene.sks; sourceTree = "<group>"; };
 		731A2C4D25EF52CE007A260A /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
+		73266D3A26168B3A00E8116B /* SignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignNode.swift; sourceTree = "<group>"; };
 		733832B725CB9F6E00139142 /* GraveyardTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GraveyardTileSet.sks; sourceTree = "<group>"; };
 		7343527325EED37300F699A8 /* CharacterSelect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterSelect.sks; sourceTree = "<group>"; };
 		7346B29025F33D1C001D6AA2 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				73E1343C25EEEE0C008972A5 /* CostumeNode.swift */,
 				7346B29025F33D1C001D6AA2 /* Shop.swift */,
 				73B4287726016BFF00E4EA96 /* ChargeBar.swift */,
+				73266D3A26168B3A00E8116B /* SignNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				73AE4EAE25F1408D001F1192 /* CharacterSelect.swift in Sources */,
 				73B428692601655400E4EA96 /* ContactNotifiableType.swift in Sources */,
 				7348E46225807B85000BE321 /* GameScene.swift in Sources */,
+				73266D3B26168B3A00E8116B /* SignNode.swift in Sources */,
 				73F41E0425C687CA00845EC4 /* TouchController.swift in Sources */,
 				73B4287326016A9F00E4EA96 /* ChargeComponent.swift in Sources */,
 				731A2C4E25EF52CE007A260A /* ShopScene.swift in Sources */,

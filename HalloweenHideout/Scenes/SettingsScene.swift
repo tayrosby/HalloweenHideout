@@ -2,7 +2,6 @@
 //  Settings.swift
 //  HalloweenHideout
 //
-//  Created by Taylor Austin on 4/1/21.
 //
 
 import SpriteKit

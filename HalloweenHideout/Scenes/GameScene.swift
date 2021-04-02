@@ -16,9 +16,11 @@ class GameScene: SKScene {
     var physicsDelagate = PhysicsDetection()
     var player : PlayerNode?
     var candy : CandyNode?
+    var sign : SignNode?
     var aLabel : SKLabelNode?
     var bLabel : SKLabelNode?
     var walkLabel :SKLabelNode?
+    var signText : SKSpriteNode?
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -56,6 +58,21 @@ class GameScene: SKScene {
                 candy?.candyValue = 5
                 //creates candy physics
                 candy?.createPhysics()
+            }
+        }
+        
+        if let theSign = self.childNode(withName: "sign_1") {
+            sign = theSign as? SignNode
+            
+            if (sign != nil) {
+                if let signTextPage = self.childNode(withName: "costumeCandySignText") {
+                    signText = signTextPage as? SKSpriteNode
+                    
+                    if (signText != nil) {
+                        signText?.isHidden = true
+                    }
+                }
+                
             }
         }
         
@@ -124,19 +141,26 @@ class GameScene: SKScene {
      updates the candy level
      */
     func updateCandyLabel(label: SKLabelNode){
-        
-        
+
         let candyLabel = label
-        
-        //print(candy?.collected)
         
         //if collected == true update the label
         if (candy?.collected == true) {
             candy?.candyAmount = (candy?.candyAmount)! + (candy?.candyValue)!
             
             candyLabel.text = "\(candy?.candyAmount ?? 0)"
-            //candy?.removeFromParent()
-            //candy?.collected = false
+            candy!.collected = false
+            print("candy: \(candy!.collected)")
+        }
+    }
+    
+    func openSign(node: SKSpriteNode) {
+        if (sign?.readSign == true) {
+            node.run(SKAction.fadeIn(withDuration: 6.0))
+            node.isHidden = false
+            node.run(SKAction.fadeOut(withDuration: 2.0))
+            //sign!.readSign = false
+            print("sign: \(sign!.readSign)")
         }
     }
     
@@ -223,7 +247,10 @@ class GameScene: SKScene {
         //updates the candy labe;
         if let candyLabel = camera?.childNode(withName: "CandyLabel") as? SKLabelNode {
             updateCandyLabel(label: candyLabel)
-            candy?.collected = false
+        }
+        
+        if let signText = self.childNode(withName: "costumeCandySignText") as? SKSpriteNode {
+            openSign(node: signText)
         }
         
         //calculate time since last update
