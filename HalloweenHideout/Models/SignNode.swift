@@ -9,8 +9,6 @@ import GameplayKit
 
 class SignNode : SKSpriteNode {
     
-    var readSign = false
-    
     /**
      gives the sign physics
      */

@@ -26,6 +26,10 @@
 		73787D5026167BD100966CA6 /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 73787D4F26167BD100966CA6 /* SettingsScene.sks */; };
 		737CD5B325E5B33B003A708F /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 737CD5B225E5B33B003A708F /* MainMenu.sks */; };
 		737CD5B825E5B600003A708F /* ButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737CD5B725E5B600003A708F /* ButtonController.swift */; };
+		739DD93B2617CFD600CA488A /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739DD93A2617CFD600CA488A /* GameOverScene.swift */; };
+		739DD9402617CFED00CA488A /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 739DD93F2617CFED00CA488A /* GameOverScene.sks */; };
+		739DD9482617D9F500CA488A /* TutorialSignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739DD9472617D9F500CA488A /* TutorialSignNode.swift */; };
+		739DD94D2617DA3C00CA488A /* NextLevelSignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */; };
 		73AE4EAE25F1408D001F1192 /* CharacterSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE4EAD25F1408D001F1192 /* CharacterSelect.swift */; };
 		73B428642601637500E4EA96 /* TaskBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B428632601637500E4EA96 /* TaskBot.swift */; };
 		73B428692601655400E4EA96 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B428682601655400E4EA96 /* ContactNotifiableType.swift */; };
@@ -103,6 +107,10 @@
 		73787D4F26167BD100966CA6 /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
 		737CD5B225E5B33B003A708F /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		737CD5B725E5B600003A708F /* ButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonController.swift; sourceTree = "<group>"; };
+		739DD93A2617CFD600CA488A /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		739DD93F2617CFED00CA488A /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		739DD9472617D9F500CA488A /* TutorialSignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSignNode.swift; sourceTree = "<group>"; };
+		739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLevelSignNode.swift; sourceTree = "<group>"; };
 		73AE4EAD25F1408D001F1192 /* CharacterSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelect.swift; sourceTree = "<group>"; };
 		73B428632601637500E4EA96 /* TaskBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBot.swift; sourceTree = "<group>"; };
 		73B428682601655400E4EA96 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotifiableType.swift; sourceTree = "<group>"; };
@@ -239,6 +247,8 @@
 				7346B29025F33D1C001D6AA2 /* Shop.swift */,
 				73B4287726016BFF00E4EA96 /* ChargeBar.swift */,
 				73266D3A26168B3A00E8116B /* SignNode.swift */,
+				739DD9472617D9F500CA488A /* TutorialSignNode.swift */,
+				739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +266,8 @@
 				73AE4EAD25F1408D001F1192 /* CharacterSelect.swift */,
 				73787D4A26167B8E00966CA6 /* SettingsScene.swift */,
 				73787D4F26167BD100966CA6 /* SettingsScene.sks */,
+				739DD93A2617CFD600CA488A /* GameOverScene.swift */,
+				739DD93F2617CFED00CA488A /* GameOverScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -426,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				739DD9402617CFED00CA488A /* GameOverScene.sks in Resources */,
 				7348E46725807B85000BE321 /* Main.storyboard in Resources */,
 				73D6AFE425CB8E3400E719D4 /* PlayerOneActions.sks in Resources */,
 				73D6AFEA25CB901700E719D4 /* PreviewScene.sks in Resources */,
@@ -493,9 +506,12 @@
 				73F9113D25CDC6430034F9AF /* AttackState.swift in Sources */,
 				73D6AFC925CB3F5A00E719D4 /* PlayerController.swift in Sources */,
 				73D6AFD925CB547E00E719D4 /* IdleState.swift in Sources */,
+				739DD93B2617CFD600CA488A /* GameOverScene.swift in Sources */,
 				73B428642601637500E4EA96 /* TaskBot.swift in Sources */,
+				739DD9482617D9F500CA488A /* TutorialSignNode.swift in Sources */,
 				73F9113825CD03F10034F9AF /* Hitbox.swift in Sources */,
 				73F9114725CDD8790034F9AF /* AttackController.swift in Sources */,
+				739DD94D2617DA3C00CA488A /* NextLevelSignNode.swift in Sources */,
 				73D6AFD325CB4E6400E719D4 /* ControlInputSourceDelagate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,6 +683,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8YK6MQH577;
 				INFOPLIST_FILE = HalloweenHideout/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -686,6 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8YK6MQH577;
 				INFOPLIST_FILE = HalloweenHideout/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

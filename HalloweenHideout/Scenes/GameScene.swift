@@ -16,11 +16,14 @@ class GameScene: SKScene {
     var physicsDelagate = PhysicsDetection()
     var player : PlayerNode?
     var candy : CandyNode?
-    var sign : SignNode?
+    var sign : TutorialSignNode?
+    var nextLevelSign : NextLevelSignNode?
     var aLabel : SKLabelNode?
     var bLabel : SKLabelNode?
     var walkLabel :SKLabelNode?
     var signText : SKSpriteNode?
+    
+    var gameOver = false
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -62,7 +65,7 @@ class GameScene: SKScene {
         }
         
         if let theSign = self.childNode(withName: "sign_1") {
-            sign = theSign as? SignNode
+            sign = theSign as? TutorialSignNode
             
             if (sign != nil) {
                 if let signTextPage = self.childNode(withName: "costumeCandySignText") {
@@ -74,6 +77,10 @@ class GameScene: SKScene {
                 }
                 
             }
+        }
+        
+        if let theSign = self.childNode(withName: "nextLevelSign") {
+            nextLevelSign = theSign as? NextLevelSignNode
         }
         
         //creates pop up for the jump label
@@ -220,6 +227,37 @@ class GameScene: SKScene {
     }
     
     /**
+     displays the game over screen
+     */
+    func displayGameOverScene() {
+        
+        //marks the game as over
+        gameOver = true
+        
+        if let scene = GKScene(fileNamed: "GameOverScene") {
+            if let sceneNode = scene.rootNode as! GameOverScene? {
+          
+                sceneNode.size = self.view!.bounds.size
+                // Set the scale mode to scale to fit the window
+                sceneNode.scaleMode = .aspectFill
+                
+                //present the scene
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode, transition: SKTransition.fade(withDuration: 0.5))
+
+                    view.ignoresSiblingOrder = true
+
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                    view.showsPhysics = true
+                }
+                
+            }
+            
+        }
+    }
+    
+    /**
      focuses the camera on the player
      */
     func centerOnNode(node: SKNode) {
@@ -253,6 +291,10 @@ class GameScene: SKScene {
             openSign(node: signText)
         }
         
+        if player!.dead == true || nextLevelSign?.levelComplete == true {
+            displayGameOverScene()
+        }
+        
         //calculate time since last update
         let dt = currentTime - self.lastUpdateTime
         
@@ -267,4 +309,3 @@ class GameScene: SKScene {
         self.lastUpdateTime = currentTime
     }
 }
-    

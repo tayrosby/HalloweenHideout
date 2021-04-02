@@ -46,16 +46,29 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             }
         }
         
-        //collision for player and the sign
+        //collision for player and the tutorial sign
         let collision3: UInt32 = 18
         if collision3 == ColliderType.PLAYER | ColliderType.SIGN {
             //sets collected to true if collision between player and sign happened
-            if let sign = contact.bodyA.node as? SignNode {
-                sign.readSign = true
-                print("1 \(sign.readSign)")
-            } else if let sign = contact.bodyB.node as? SignNode {
-                sign.readSign = true
-                print("2 \(sign.readSign)")
+            if let tsign = contact.bodyA.node as? TutorialSignNode {
+                tsign.readSign = true
+                print("1 \(tsign.readSign)")
+            } else if let tsign = contact.bodyB.node as? TutorialSignNode {
+                tsign.readSign = true
+                print("2 \(tsign.readSign)")
+            }
+        }
+        
+        //collision for player and the next level sign
+        let collision4: UInt32 = 18
+        if collision4 == ColliderType.PLAYER | ColliderType.SIGN {
+            //sets collected to true if collision between player and sign happened
+            if let nlsign = contact.bodyA.node as? NextLevelSignNode {
+                nlsign.levelComplete = true
+                print("1 \(nlsign.levelComplete)")
+            } else if let nlsign = contact.bodyB.node as? NextLevelSignNode {
+                nlsign.levelComplete = true
+                print("2 \(nlsign.levelComplete)")
             }
         }
     }
