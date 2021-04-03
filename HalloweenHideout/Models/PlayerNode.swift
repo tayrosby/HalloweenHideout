@@ -13,7 +13,8 @@ class PlayerNode : SKSpriteNode {
     var left = false
     var right = false
     
-    var character  = ""
+    var characterType = 1
+    var character = ""
     
     var jump = false
     var landed = false
@@ -26,7 +27,7 @@ class PlayerNode : SKSpriteNode {
     var maxJump : CGFloat = 15.0
     
     var health : CGFloat = 6.0
-    var candyAmount : CGFloat = 50.0
+    var candyAmount : CGFloat = 0.0
     
     var costume : Costume?
     
@@ -72,23 +73,20 @@ class PlayerNode : SKSpriteNode {
      increases the amount of candy a user has
      */
     func getCandy(_ amount: CGFloat) {
+        let levelCandyAmount = UserDefaultsManager.shared.getPlayerLevelCandyAmount() + amount
+        UserDefaultsManager.shared.savePlayerLevelCandyAmount(candyAmount: levelCandyAmount)
         
-//        guard let scene = self.scene as? GameScene else {
-//            fatalError()
-//        }
-        
-        self.candyAmount += amount
+        let totalCandyAmount = UserDefaultsManager.shared.getPlayerTotalCandyAmount() + amount
+        UserDefaultsManager.shared.savePlayerTotalCandyAmount(candyAmount: totalCandyAmount)
     }
     
     /**
      decreases the amount of candy a user has
      */
     func loseCandy(_ amount: CGFloat) {
-//        guard let scene = self.scene as? GameScene else {
-//            fatalError()
-//        }
+        let candyAmount = UserDefaultsManager.shared.getPlayerTotalCandyAmount() - amount
+        UserDefaultsManager.shared.savePlayerTotalCandyAmount(candyAmount: candyAmount)
         
-        self.candyAmount -= amount
     }
     
     /**

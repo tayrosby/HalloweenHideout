@@ -11,7 +11,7 @@ class AnimationController : GKComponent {
     
     var pNode : PlayerNode?
     
-    @GKInspectable var characterType = 1
+    @GKInspectable public var characterType = 1
     
     //animation names and actions
     var actions = [String : SKAction]()
@@ -29,19 +29,35 @@ class AnimationController : GKComponent {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        characterType = updateCharacterType()
+        
         var prefix = ""
         
         if (characterType == 2) {
             prefix = "Enemy"
+        } else if (characterType == 3) {
+            prefix = "Costume"
         }
         
         for name in actionNames {
-            if name.key == "Idle" || name.key == "Damage" || name.key == "Dead" {
+            if name.key == "Idle" || name.key == "Damage" || name.key == "Dead" || name.key == "Attack" || name.key == "Falling" || name.key == "Jump" || name.key == "Run"{
                 actionNames[name.key] = "\(prefix)\(name.value)"
             }
             
             actions[name.key] = SKAction(named: actionNames[name.key]!)
         }
+    }
+    
+    func updateCharacterType() -> Int {
+        if pNode == nil {
+            if let nodeComponent = self.entity?.component(ofType: GKSKNodeComponent.self) {
+                pNode = nodeComponent.node as? PlayerNode
+                characterType = pNode!.characterType
+                
+            }
+        }
+        return characterType
     }
     
     override public class var supportsSecureCoding: Bool { return secureCoding }

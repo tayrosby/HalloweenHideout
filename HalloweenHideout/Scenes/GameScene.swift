@@ -11,6 +11,7 @@ class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var enemies = [PlayerNode]()
+    var costumes = [PlayerNode]()
     var candies = [CandyNode]()
     var graphs = [String : GKGraph]()
     var physicsDelagate = PhysicsDetection()
@@ -22,6 +23,8 @@ class GameScene: SKScene {
     var bLabel : SKLabelNode?
     var walkLabel :SKLabelNode?
     var signText : SKSpriteNode?
+    var costume : CostumeObjectNode?
+    var animate : AnimationController?
     
     var gameOver = false
     
@@ -81,6 +84,10 @@ class GameScene: SKScene {
         
         if let theSign = self.childNode(withName: "nextLevelSign") {
             nextLevelSign = theSign as? NextLevelSignNode
+        }
+        
+        if let costumeSign = self.childNode(withName: "CostumeObject") {
+            costume = costumeSign as? CostumeObjectNode
         }
         
         //creates pop up for the jump label
@@ -153,9 +160,10 @@ class GameScene: SKScene {
         
         //if collected == true update the label
         if (candy?.collected == true) {
-            candy?.candyAmount = (candy?.candyAmount)! + (candy?.candyValue)!
-            player?.candyAmount = candy!.candyAmount
-            candyLabel.text = "\(player?.candyAmount ?? 0)"
+            player?.getCandy(candy!.candyValue)
+            let candyLabelAmount = UserDefaultsManager.shared.getPlayerLevelCandyAmount()
+            print(candyLabelAmount)
+            candyLabel.text = "\(candyLabelAmount)"
             candy!.collected = false
             print("candy: \(candy!.collected)")
         }
@@ -169,6 +177,14 @@ class GameScene: SKScene {
             //sign!.readSign = false
             print("sign: \(sign!.readSign)")
         }
+    }
+    
+    func wearCostume() {
+        if(costume?.costumeTransfer == true) {
+            player!.characterType = 3
+            animate?.playAnimation(with: "Idle")
+        }
+        costume?.costumeTransfer = false
     }
     
     /**
@@ -233,6 +249,8 @@ class GameScene: SKScene {
         
         //marks the game as over
         gameOver = true
+        
+        UserDefaultsManager.shared.defaults.removeObject(forKey: "levelCandyAmount")
         
         if let scene = GKScene(fileNamed: "GameOverScene") {
             if let sceneNode = scene.rootNode as! GameOverScene? {
@@ -302,6 +320,8 @@ class GameScene: SKScene {
         for entity in self.entities {
             entity.update(deltaTime: dt)
         }
+        
+        wearCostume()
         
         //updates the packground system
         parallaxSystem?.update(deltaTime: currentTime)

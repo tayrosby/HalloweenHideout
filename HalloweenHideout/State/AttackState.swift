@@ -52,7 +52,7 @@ class AttackState : GKState {
             //if not attacking state is idle
             pNode?.attack = false
             stateMachine?.enter(IdleState.self)
-            activeTime = 0.4
+            activeTime = 1
         }
         
         self.lastUpdateTime = seconds

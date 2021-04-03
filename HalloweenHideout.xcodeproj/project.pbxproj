@@ -65,6 +65,10 @@
 		73FEEF3A26180EC4004C76EA /* CostumeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF3926180EC4004C76EA /* CostumeScene.swift */; };
 		73FEEF4226181F6C004C76EA /* CostumeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 73FEEF4126181F6C004C76EA /* CostumeScene.sks */; };
 		73FEEF5126186504004C76EA /* DeadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF5026186504004C76EA /* DeadState.swift */; };
+		73FEEF562618DC76004C76EA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF552618DC76004C76EA /* UserDefaultsManager.swift */; };
+		73FEEF5B2618F457004C76EA /* Costume.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73FEEF5A2618F457004C76EA /* Costume.xcassets */; };
+		73FEEF60261900A8004C76EA /* CostumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF5F261900A8004C76EA /* CostumeController.swift */; };
+		73FEEF65261909C3004C76EA /* CostumeObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF64261909C3004C76EA /* CostumeObjectNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +153,10 @@
 		73FEEF3926180EC4004C76EA /* CostumeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumeScene.swift; sourceTree = "<group>"; };
 		73FEEF4126181F6C004C76EA /* CostumeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CostumeScene.sks; sourceTree = "<group>"; };
 		73FEEF5026186504004C76EA /* DeadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadState.swift; sourceTree = "<group>"; };
+		73FEEF552618DC76004C76EA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		73FEEF5A2618F457004C76EA /* Costume.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Costume.xcassets; sourceTree = "<group>"; };
+		73FEEF5F261900A8004C76EA /* CostumeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumeController.swift; sourceTree = "<group>"; };
+		73FEEF64261909C3004C76EA /* CostumeObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumeObjectNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +220,7 @@
 				73E42593258FE93900606699 /* Resources */,
 				73BC5D3625AE583400398E92 /* Models */,
 				73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */,
+				73FEEF5A2618F457004C76EA /* Costume.xcassets */,
 			);
 			path = HalloweenHideout;
 			sourceTree = "<group>";
@@ -255,6 +264,8 @@
 				73266D3A26168B3A00E8116B /* SignNode.swift */,
 				739DD9472617D9F500CA488A /* TutorialSignNode.swift */,
 				739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */,
+				73FEEF552618DC76004C76EA /* UserDefaultsManager.swift */,
+				73FEEF64261909C3004C76EA /* CostumeObjectNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -340,6 +351,7 @@
 				737CD5B725E5B600003A708F /* ButtonController.swift */,
 				73B4286D2601662800E4EA96 /* IntelligenceComponents.swift */,
 				73B4287226016A9F00E4EA96 /* ChargeComponent.swift */,
+				73FEEF5F261900A8004C76EA /* CostumeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -459,6 +471,7 @@
 				73787D5026167BD100966CA6 /* SettingsScene.sks in Resources */,
 				73FEEF4226181F6C004C76EA /* CostumeScene.sks in Resources */,
 				733832B925CB9F6E00139142 /* GraveyardTileSet.sks in Resources */,
+				73FEEF5B2618F457004C76EA /* Costume.xcassets in Resources */,
 				73E4259F2590065700606699 /* Launch Screen.storyboard in Resources */,
 				731A2C4925EF513B007A260A /* ShopScene.sks in Resources */,
 				7348E46025807B85000BE321 /* Actions.sks in Resources */,
@@ -489,9 +502,12 @@
 				73B4286E2601662800E4EA96 /* IntelligenceComponents.swift in Sources */,
 				73AE4EAE25F1408D001F1192 /* CharacterSelect.swift in Sources */,
 				73B428692601655400E4EA96 /* ContactNotifiableType.swift in Sources */,
+				73FEEF60261900A8004C76EA /* CostumeController.swift in Sources */,
 				73FEEF3A26180EC4004C76EA /* CostumeScene.swift in Sources */,
 				7348E46225807B85000BE321 /* GameScene.swift in Sources */,
 				73266D3B26168B3A00E8116B /* SignNode.swift in Sources */,
+				73FEEF65261909C3004C76EA /* CostumeObjectNode.swift in Sources */,
+				73FEEF562618DC76004C76EA /* UserDefaultsManager.swift in Sources */,
 				73F41E0425C687CA00845EC4 /* TouchController.swift in Sources */,
 				73B4287326016A9F00E4EA96 /* ChargeComponent.swift in Sources */,
 				731A2C4E25EF52CE007A260A /* ShopScene.swift in Sources */,

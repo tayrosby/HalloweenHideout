@@ -101,12 +101,12 @@ class CostumeScene: SKScene{
     private func setPriceText() {
         
         func playerCanAfford() {
-            priceLabel?.text = "$\(costumeNode?.price ?? 30)"
+            priceLabel?.text = "$\(costumeNode?.price ?? 0)"
             priceLabel?.fontColor = .white
         }
         
         func playerCantAfford() {
-            priceLabel?.text = "$\(costumeNode?.price ?? 20)"
+            priceLabel?.text = "$\(costumeNode?.price ?? 0)"
             priceLabel?.fontColor = .red
         }
         
@@ -117,8 +117,8 @@ class CostumeScene: SKScene{
         
         //calls above method based on costume and candy amount
         if ((player?.hasCostume(self.costumeNode!)) != nil)         { playerOwns() }
-        else if player?.candyAmount ?? 0 < self.costumeNode?.price ?? 40  { playerCantAfford() }
-        else if player?.candyAmount ?? 0 >= self.costumeNode?.price ?? 0 { playerCanAfford()  }
+        else if UserDefaultsManager.shared.getPlayerTotalCandyAmount() < self.costumeNode?.price ?? 0  { playerCantAfford() }
+        else if UserDefaultsManager.shared.getPlayerTotalCandyAmount() >= self.costumeNode?.price ?? 0 { playerCanAfford()  }
         else                                       { fatalError() }
     }
     
@@ -136,18 +136,21 @@ class CostumeScene: SKScene{
         case "costume1":
             costumeLabel?.text = "Hero Knight"
             costumeDescription?.text = "costume 1"
+            costumeNode?.price = 500
             setPriceText()
             costume?.texture = SKTexture(imageNamed: "hero_costume_idle00")
             costume?.size = CGSize(width: 280, height: 280)
         case "costume2":
             costumeLabel?.text = "Martial Hero"
             costumeDescription?.text = "costume 2"
+            costumeNode?.price = 1000
             setPriceText()
             costume?.texture = SKTexture(imageNamed: "martial_costume_idle0")
             costume?.size = CGSize(width: 280, height: 280)
         case "costume3":
             costumeLabel?.text = "Fantasy Warrior"
             costumeDescription?.text = "costume 3"
+            costumeNode?.price = 5
             setPriceText()
             costume?.texture = SKTexture(imageNamed: "warrior_costume_idle_00")
             costume?.size = CGSize(width: 280, height: 280)
@@ -176,7 +179,7 @@ class CostumeScene: SKScene{
          costumeNode.becomesSelected()
          
          //checks if the user can afford the costume
-         if player?.candyAmount ?? 0 < costumeNode.costume!.price {
+         if UserDefaultsManager.shared.getPlayerTotalCandyAmount() < costumeNode.costume!.price {
             buyLabel?.text = "Can't Afford"
          } else {
             buyLabel?.text = "Buy"
@@ -184,7 +187,7 @@ class CostumeScene: SKScene{
      }
     
     /**
-     navigates to the select character menu
+     buys the costume
      */
     func buyCostume(){
 //        if shop.canSellCostume(selectedNode!.costume!) {
@@ -195,6 +198,7 @@ class CostumeScene: SKScene{
         priceLabel?.text = "Own"
         priceLabel?.color = UIColor.white
         buttonBuy.removeFromParent()
+        player?.loseCandy(30)
     }
         
         /**

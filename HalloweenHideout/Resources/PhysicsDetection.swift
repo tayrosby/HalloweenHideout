@@ -71,5 +71,21 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
                 print("2 \(nlsign.levelComplete)")
             }
         }
+        
+        //collision for player and the next level sign
+        let collision5: UInt32 = 18
+        if collision5 == ColliderType.PLAYER | ColliderType.SIGN {
+            //sets collected to true if collision between player and sign happened
+            if let costume = contact.bodyA.node as? CostumeObjectNode {
+                costume.costumeTransfer = true
+                print("1 \(costume.costumeTransfer)")
+                costume.removeFromParent()
+            } else if let costume = contact.bodyB.node as? CostumeObjectNode {
+                costume.costumeTransfer = true
+                print("2 \(costume.costumeTransfer)")
+                costume.removeFromParent()
+            }
+        }
+        
     }
 }

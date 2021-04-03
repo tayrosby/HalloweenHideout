@@ -17,7 +17,9 @@ class ShopScene: SKScene{
         if let theCandyLabel = self.childNode(withName: "candyNode") {
             candyNode = theCandyLabel as? SKLabelNode
             if (candyNode != nil) {
-                candyNode?.text = "\(player?.candyAmount ?? 50)"
+                let candyLabelAmount = UserDefaultsManager.shared.getPlayerTotalCandyAmount()
+                print(candyLabelAmount)
+                candyNode?.text = "\(candyLabelAmount)"
             }
             
         }

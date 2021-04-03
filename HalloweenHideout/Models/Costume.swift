@@ -10,7 +10,7 @@ class Costume {
     
     let name: String
     let texture: SKTexture
-    let price: CGFloat
+    var price: CGFloat
     let description: String
     
     static var allCostumes = [Costume]()
