@@ -26,7 +26,7 @@ class PlayerNode : SKSpriteNode {
     var maxJump : CGFloat = 15.0
     
     var health : CGFloat = 6.0
-    var candyAmount : CGFloat = 30.0
+    var candyAmount : CGFloat = 50.0
     
     var costume : Costume?
     

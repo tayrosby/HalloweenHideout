@@ -154,8 +154,8 @@ class GameScene: SKScene {
         //if collected == true update the label
         if (candy?.collected == true) {
             candy?.candyAmount = (candy?.candyAmount)! + (candy?.candyValue)!
-            
-            candyLabel.text = "\(candy?.candyAmount ?? 0)"
+            player?.candyAmount = candy!.candyAmount
+            candyLabel.text = "\(player?.candyAmount ?? 0)"
             candy!.collected = false
             print("candy: \(candy!.collected)")
         }

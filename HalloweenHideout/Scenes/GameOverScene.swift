@@ -8,33 +8,32 @@ import SpriteKit
 import GameplayKit
 
 class GameOverScene: SKScene {
-    var buttonPlay: ButtonController!
-    var buttonStore: ButtonController!
-    var buttonSetting: ButtonController!
+    var buttonReplay: ButtonController!
+    var buttonMenu: ButtonController!
     
     override func didMove(to view: SKView) {
         /* Setup your scene here */
 
         /* Set UI connections */
-//        buttonPlay = self.childNode(withName: "buttonPlay") as? ButtonController
-//        buttonStore = self.childNode(withName: "buttonStore") as? ButtonController
-//        
-//        buttonPlay.selectedHandler = {
-//            self.selectCharacter()
-//        }
-//        
-//        buttonStore.selectedHandler = {
-//            self.enterStore()
-//        }
+        buttonReplay = self.childNode(withName: "buttonReplay") as? ButtonController
+        buttonMenu = self.childNode(withName: "buttonMenu") as? ButtonController
+        
+        buttonReplay.selectedHandler = {
+            self.replayGame()
+        }
+        
+        buttonMenu.selectedHandler = {
+            self.backToMenu()
+        }
         
     }
         
         /**
-         navigates to the select character menu
+         navigates to the select game menu
          */
-        func selectCharacter(){
-            if let scene = GKScene(fileNamed: "CharacterSelect") {
-                if let sceneNode = scene.rootNode as! CharacterSelect? {
+        func replayGame(){
+            if let scene = GKScene(fileNamed: "GameScene") {
+                if let sceneNode = scene.rootNode as! GameScene? {
               
                     sceneNode.size = self.view!.bounds.size
                     // Set the scale mode to scale to fit the window
@@ -58,11 +57,11 @@ class GameOverScene: SKScene {
         }
         
         /**
-         navigates to the store scene
+         navigates to the menu scene
          */
-        func enterStore() {
-            if let scene = GKScene(fileNamed: "ShopScene") {
-                if let sceneNode = scene.rootNode as! ShopScene? {
+        func backToMenu() {
+            if let scene = GKScene(fileNamed: "MainMenu") {
+                if let sceneNode = scene.rootNode as! MainMenu? {
               
                     sceneNode.size = self.view!.bounds.size
                     // Set the scale mode to scale to fit the window

@@ -20,15 +20,13 @@ class Costume {
         self.texture = texture
         self.price = price
         self.description = description
-
-        Costume.allCostumes.append(self)
     }
 
     static let list = (
-        evil_wizard: Costume(name: "Evil Wizard", texture: SKTexture(imageNamed: ""), price: 25, description: "evil wizard"),
-        eviler_wizard: Costume(name: "Eviler Wizard", texture: SKTexture(imageNamed: ""), price: 25, description: "eviler wizard"),
-        fantasy_warrior: Costume(name: "Fanatsy Warrior", texture: SKTexture(imageNamed: ""), price: 50, description: "fantasy warrior"),
-        default_costume: Costume(name: "default", texture: SKTexture(imageNamed: "1_Fallen_Angels_Idle Blinking_000"), price: 50, description: "default")
+        hero_knight: Costume(name: "Hero Knight", texture: SKTexture(imageNamed: "hero_costume_idle00"), price: 0, description: "evil wizard"),
+        martial_hero: Costume(name: "Martial Hero", texture: SKTexture(imageNamed: "martial_costume_idle0"), price: 0, description: "eviler wizard"),
+        fantasy_warrior: Costume(name: "Fanatsy Warrior", texture: SKTexture(imageNamed: "warrior_costume_idle_00"), price: 0, description: "fantasy warrior"),
+        default_costume: Costume(name: "default", texture: SKTexture(imageNamed: "1_Fallen_Angels_Idle Blinking_000"), price: 0, description: "default")
     )
     
     static let defaultCostume = list.default_costume

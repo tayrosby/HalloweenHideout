@@ -8,9 +8,9 @@ import SpriteKit
 
 class Shop {
     
-    var scene : ShopScene?
+    var scene : GameScene?
     var player : PlayerNode { return scene!.player!}
-    var availableCostumes: [Costume] = [Costume.list.eviler_wizard, Costume.list.evil_wizard]
+    var availableCostumes: [Costume] = [Costume.list.hero_knight, Costume.list.martial_hero]
     var soldCostumes: [Costume] = [Costume.defaultCostume]
     
     /**
@@ -42,8 +42,8 @@ class Shop {
         }
     }
     
-    init(shopScene: ShopScene) {
-        self.scene = shopScene
+    init(costumeScene: GameScene) {
+        self.scene = costumeScene
     }
     
 }

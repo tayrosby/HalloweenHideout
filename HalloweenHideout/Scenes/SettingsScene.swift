@@ -27,7 +27,7 @@ class SettingsScene: SKScene {
      returns to the main menu
      */
     func returnToMainMenu() {
-        // Load the SKScene from 'GameScene.sks'
+        // Load the SKScene from 'MainMenu.sks'
         if let scene = GKScene(fileNamed: "MainMenu") {
             
             if let sceneNode = scene.rootNode as! MainMenu? {
