@@ -10,12 +10,13 @@ import GameplayKit
 class AnimationController : GKComponent {
     
     var pNode : PlayerNode?
+    
     @GKInspectable var characterType = 1
     
     //animation names and actions
     var actions = [String : SKAction]()
     var actionNames : [String : String] = [
-        "Idle":"Idle", "Run":"Run", "Jump":"Jump","Faliing":"Falling","Damage":"Damage",
+        "Idle":"Idle", "Run":"Run", "Jump":"Jump","Falling":"Falling","Damage":"Damage",
         "Attack":"Attack", "Dead":"Dead"
     ]
     
@@ -79,7 +80,7 @@ class AnimationController : GKComponent {
                 
             } // plays falling animation based on velocity
             else if (pNode?.physicsBody?.velocity.dy)! < 10.0 {
-                playAnimation(with: "Faling")
+                playAnimation(with: "Falling")
             }
         }
        } //plays attack animation if state is attack
@@ -89,10 +90,9 @@ class AnimationController : GKComponent {
         } // plays damage animation if state is damage
        else if pNode?.state?.currentState is DamageState {
             if pNode?.dead == true {
-                    playAnimation(with: "Dead")
-                } else {
+                playAnimation(with: "Dead")
+            } else {
                 playAnimation(with: "Damage")
-                
             }
         
        }
@@ -106,7 +106,14 @@ func playAnimation(with name: String) {
     if ((pNode?.action(forKey: name)) == nil) {
         pNode?.removeAllActions()
         if (actions[name] != nil) {
-            pNode?.run(actions[name]!, withKey: name)
+            if pNode?.dead == true {
+                pNode?.run(actions[name]!, withKey: name)
+                pNode?.run(SKAction.wait(forDuration: 1))
+                pNode?.removeAction(forKey: "Dead")
+                pNode?.texture = SKTexture(imageNamed: "Satyr_01_Dying_014")
+            } else {
+                pNode?.run(actions[name]!, withKey: name)
+            }
         }
     }
 }
