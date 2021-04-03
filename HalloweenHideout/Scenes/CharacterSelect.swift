@@ -10,8 +10,9 @@ import GameplayKit
 class CharacterSelect : SKScene {
     /* UI Connections */
     var buttonSelect: ButtonController!
-
+    var lockedCharacter = false
     var player : PlayerNode?
+    var lockedLabel : SKLabelNode?
     
         override func didMove(to view: SKView) {
 
@@ -21,6 +22,9 @@ class CharacterSelect : SKScene {
             buttonSelect.selectedHandler = {
                 self.startGame()
             }
+            
+            //creates pop up for the jump label
+                self.lockedLabel = self.childNode(withName: "lockedLabel") as? SKLabelNode
         }
 
     /**
@@ -50,6 +54,18 @@ class CharacterSelect : SKScene {
                     player?.character = "Character2"
                     //tells the user which character is selected
                     touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
+                }
+                //selects the second character
+                if touchedNode.name == "Character3" {
+                    player?.character = "Character3"
+                    lockedCharacter = true
+                    //tells the user which character is selected
+                    touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
+                    if let lockedLabel = self.lockedLabel {
+                        lockedLabel.run(SKAction.fadeIn(withDuration: 4.0))
+                        lockedLabel.isHidden = false
+                        lockedLabel.run(SKAction.fadeOut(withDuration: 4.0))
+                    }
                 }
             default:
                 ()

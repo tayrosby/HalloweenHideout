@@ -158,9 +158,10 @@ class PlayerNode : SKSpriteNode {
         let idleState = IdleState(with: self)
         let attackState = AttackState(with: self)
         let damageState = DamageState(with: self)
+        let deadState = DeadState(with: self)
         
         //adds states to state machine
-        state = GKStateMachine(states: [idleState, attackState, damageState])
+        state = GKStateMachine(states: [idleState, attackState, damageState, deadState])
         
         //adds states to player
         state?.enter(IdleState.self)

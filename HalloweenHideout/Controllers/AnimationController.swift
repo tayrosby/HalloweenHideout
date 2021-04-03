@@ -89,13 +89,13 @@ class AnimationController : GKComponent {
         } // plays damage animation if state is damage
        else if pNode?.state?.currentState is DamageState {
             if pNode?.dead == true {
-                playAnimation(with: "Dead")
-            } else {
+                    playAnimation(with: "Dead")
+                } else {
                 playAnimation(with: "Damage")
                 
             }
-            
-        }
+        
+       }
 }
 
 /**

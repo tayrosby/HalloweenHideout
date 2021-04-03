@@ -32,14 +32,23 @@ class GameOverScene: SKScene {
          navigates to the select game menu
          */
         func replayGame(){
+            // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
+            // including entities and graphs.
             if let scene = GKScene(fileNamed: "GameScene") {
+
+                // Get the SKScene from the loaded GKScene
                 if let sceneNode = scene.rootNode as! GameScene? {
-              
+
+                    // Copy gameplay related content over to the scene
+                    sceneNode.entities = scene.entities
+                    sceneNode.graphs = scene.graphs
+                    //sceneNode.gameViewController = self
                     sceneNode.size = self.view!.bounds.size
                     // Set the scale mode to scale to fit the window
                     sceneNode.scaleMode = .aspectFill
-                    
-                    //present the scene
+
+
+                    // Present the scene
                     if let view = self.view as! SKView? {
                         view.presentScene(sceneNode, transition: SKTransition.fade(withDuration: 0.5))
 
@@ -49,9 +58,7 @@ class GameOverScene: SKScene {
                         view.showsNodeCount = true
                         view.showsPhysics = true
                     }
-                    
                 }
-                
             }
             
         }

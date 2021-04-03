@@ -13,6 +13,7 @@ class CostumeNode: SKSpriteNode {
     var player : PlayerNode?
     var nameNode = SKLabelNode()
     var priceNode = SKLabelNode()
+
     
     init(costume: Costume, player: PlayerNode?) {
         
