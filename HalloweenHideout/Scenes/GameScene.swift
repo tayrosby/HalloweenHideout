@@ -180,16 +180,14 @@ class GameScene: SKScene {
     }
     
     func wearCostume(node: PlayerNode) {
-        print("in wear class")
         player!.characterType = 3
-        print(player!.characterType )
-        //animate?.playAnimation(with: "Idle")
         player?.removeAllActions()
         player?.texture = SKTexture(imageNamed: "warrior_costume_idle_00")
-        print(player!.texture)
-        let change = SKAction.setTexture(SKTexture(imageNamed: "warrior_costume_idle_00"), resize: true)
-        player?.run(change)
-        //costume?.costumeTransfer = false
+        player?.run(SKAction.setTexture(SKTexture(imageNamed: "warrior_costume_idle_00")))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.costume?.costumeTransfer = false
+            
+        }
     }
     
     /**
