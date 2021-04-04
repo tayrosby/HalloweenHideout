@@ -78,11 +78,11 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             //sets collected to true if collision between player and sign happened
             if let costume = contact.bodyA.node as? CostumeObjectNode {
                 costume.costumeTransfer = true
-                print("1 \(costume.costumeTransfer)")
+                print("costume \(costume.costumeTransfer)")
                 costume.removeFromParent()
             } else if let costume = contact.bodyB.node as? CostumeObjectNode {
                 costume.costumeTransfer = true
-                print("2 \(costume.costumeTransfer)")
+                print("costume \(costume.costumeTransfer)")
                 costume.removeFromParent()
             }
         }

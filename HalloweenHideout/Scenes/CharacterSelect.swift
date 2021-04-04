@@ -60,7 +60,7 @@ class CharacterSelect : SKScene {
                     player?.character = "Character3"
                     lockedCharacter = true
                     //tells the user which character is selected
-                    touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
+                    //touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
                     if let lockedLabel = self.lockedLabel {
                         lockedLabel.run(SKAction.fadeIn(withDuration: 4.0))
                         lockedLabel.isHidden = false

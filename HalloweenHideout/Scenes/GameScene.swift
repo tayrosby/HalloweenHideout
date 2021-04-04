@@ -179,12 +179,17 @@ class GameScene: SKScene {
         }
     }
     
-    func wearCostume() {
-        if(costume?.costumeTransfer == true) {
-            player!.characterType = 3
-            animate?.playAnimation(with: "Idle")
-        }
-        costume?.costumeTransfer = false
+    func wearCostume(node: PlayerNode) {
+        print("in wear class")
+        player!.characterType = 3
+        print(player!.characterType )
+        //animate?.playAnimation(with: "Idle")
+        player?.removeAllActions()
+        player?.texture = SKTexture(imageNamed: "warrior_costume_idle_00")
+        print(player!.texture)
+        let change = SKAction.setTexture(SKTexture(imageNamed: "warrior_costume_idle_00"), resize: true)
+        player?.run(change)
+        //costume?.costumeTransfer = false
     }
     
     /**
@@ -320,8 +325,9 @@ class GameScene: SKScene {
         for entity in self.entities {
             entity.update(deltaTime: dt)
         }
-        
-        wearCostume()
+        if costume?.costumeTransfer == true {
+            wearCostume(node: player!)
+        }
         
         //updates the packground system
         parallaxSystem?.update(deltaTime: currentTime)
