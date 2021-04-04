@@ -15,6 +15,9 @@ class Costume {
     
     static var allCostumes = [Costume]()
     
+    /**
+     initlilization
+     */
     init(name:String, texture:SKTexture, price:CGFloat, description:String) {
         self.name = name
         self.texture = texture
@@ -22,6 +25,7 @@ class Costume {
         self.description = description
     }
 
+    //list of costumes
     static let list = (
         hero_knight: Costume(name: "Hero Knight", texture: SKTexture(imageNamed: "hero_costume_idle00"), price: 0, description: "evil wizard"),
         martial_hero: Costume(name: "Martial Hero", texture: SKTexture(imageNamed: "martial_costume_idle0"), price: 0, description: "eviler wizard"),
@@ -31,6 +35,9 @@ class Costume {
     
     static let defaultCostume = list.default_costume
 
+    /**
+     compares the names of the costumes
+     */
     static func == (lhs: Costume, rhs: Costume) -> Bool {
     if lhs.name == rhs.name {
         return true

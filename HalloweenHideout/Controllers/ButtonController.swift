@@ -12,50 +12,57 @@ enum ButtonControllerState {
 
 class ButtonController: SKSpriteNode {
     
-    /* Setup a dummy action closure */
+    //Setup a dummy action closure
     var selectedHandler: () -> Void = { print("No button action set") }
     
-    /* Button state management */
+    //Button state management
     var state: ButtonControllerState = .ButtonControllerStateActive {
         didSet {
             switch state {
             case .ButtonControllerStateActive:
-                /* Enable touch */
+                //Enable touch
                 self.isUserInteractionEnabled = true
                 
-                /* Visible */
+                //Visible
                 self.alpha = 1
                 break
             case .ButtonControllerStateSelected:
-                /* Semi transparent */
+                //Semi transparent
                 self.alpha = 0.7
                 break
             case .ButtonControllerStateHidden:
-                /* Disable touch */
+                //Disable touch
                 self.isUserInteractionEnabled = false
                 
-                /* Hide */
+                //Hide
                 self.alpha = 0
                 break
             }
         }
     }
     
-    /* Support for NSKeyedArchiver (loading objects from SK Scene Editor */
+    /**
+     Support for NSKeyedArchiver (loading objects from SK Scene Editor
+     */
     required init?(coder aDecoder: NSCoder) {
         
-        /* Call parent initializer e.g. SKSpriteNode */
+        //Call parent initializer e.g. SKSpriteNode
         super.init(coder: aDecoder)
         
-        /* Enable touch on button node */
+        //Enable touch on button node
         self.isUserInteractionEnabled = true
     }
     
-    // MARK: - Touch handling
+    /**
+     checks if user touched screen
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         state = .ButtonControllerStateSelected
     }
     
+    /**
+     checks if user stopped touching screen
+     */
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         selectedHandler()
         state = .ButtonControllerStateActive

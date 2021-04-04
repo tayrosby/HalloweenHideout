@@ -14,7 +14,9 @@ class AttackState : GKState {
     private var lastUpdateTime : TimeInterval = 0
     
     
-    //initalize player
+    /**
+     initalize player
+     */
     init(with node: PlayerNode) {
         self.pNode = node
     }

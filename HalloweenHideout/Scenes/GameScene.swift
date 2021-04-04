@@ -67,14 +67,19 @@ class GameScene: SKScene {
             }
         }
         
+        //if the node in gamescene == sign_1 set as tutorial sign node
         if let theSign = self.childNode(withName: "sign_1") {
             sign = theSign as? TutorialSignNode
             
+            //if sign exists
             if (sign != nil) {
+                //if the node in gamescene == costumeCandySignText set as sksprite node
                 if let signTextPage = self.childNode(withName: "costumeCandySignText") {
                     signText = signTextPage as? SKSpriteNode
                     
+                    //if sign text exists
                     if (signText != nil) {
+                        //hide the sign
                         signText?.isHidden = true
                     }
                 }
@@ -82,10 +87,11 @@ class GameScene: SKScene {
             }
         }
         
+        //if the node in gamescene == nextLevelSign set as next level sign node
         if let theSign = self.childNode(withName: "nextLevelSign") {
             nextLevelSign = theSign as? NextLevelSignNode
         }
-        
+        //if the node in gamescene == CostumeObject set as costume object node
         if let costumeSign = self.childNode(withName: "CostumeObject") {
             costume = costumeSign as? CostumeObjectNode
         }
@@ -161,29 +167,39 @@ class GameScene: SKScene {
         //if collected == true update the label
         if (candy?.collected == true) {
             player?.getCandy(candy!.candyValue)
+            //gets the amount of candy during the level
             let candyLabelAmount = UserDefaultsManager.shared.getPlayerLevelCandyAmount()
-            print(candyLabelAmount)
+            //update the level
             candyLabel.text = "\(candyLabelAmount)"
             candy!.collected = false
-            print("candy: \(candy!.collected)")
         }
     }
     
+    /**
+     open the tutorial sign
+     */
     func openSign(node: SKSpriteNode) {
+        //if player has touched the sign
         if (sign?.readSign == true) {
+            //display popup with tutorial info
             node.run(SKAction.fadeIn(withDuration: 6.0))
             node.isHidden = false
             node.run(SKAction.fadeOut(withDuration: 2.0))
-            //sign!.readSign = false
-            print("sign: \(sign!.readSign)")
         }
     }
     
+    /**
+     allows the user to change costumes
+     */
     func wearCostume(node: PlayerNode) {
+        //changes the character type
         player!.characterType = 3
+        //removes the previous actions
         player?.removeAllActions()
+        //adds the new costume texture
         player?.texture = SKTexture(imageNamed: "warrior_costume_idle_00")
         player?.run(SKAction.setTexture(SKTexture(imageNamed: "warrior_costume_idle_00")))
+        //waits before changing the transfer variable back to false
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.costume?.costumeTransfer = false
             
@@ -253,8 +269,10 @@ class GameScene: SKScene {
         //marks the game as over
         gameOver = true
         
+        //clears the candy collected during the level
         UserDefaultsManager.shared.defaults.removeObject(forKey: "levelCandyAmount")
         
+        //sets the scene
         if let scene = GKScene(fileNamed: "GameOverScene") {
             if let sceneNode = scene.rootNode as! GameOverScene? {
           
@@ -308,10 +326,12 @@ class GameScene: SKScene {
             updateCandyLabel(label: candyLabel)
         }
         
+        //opens the tutorial sign
         if let signText = self.childNode(withName: "costumeCandySignText") as? SKSpriteNode {
             openSign(node: signText)
         }
         
+        //checks if the player is dead or if they reached the end of the level
         if player!.dead == true || nextLevelSign?.levelComplete == true {
             displayGameOverScene()
         }
@@ -323,6 +343,8 @@ class GameScene: SKScene {
         for entity in self.entities {
             entity.update(deltaTime: dt)
         }
+        
+        //checks for costume transfer
         if costume?.costumeTransfer == true {
             wearCostume(node: player!)
         }

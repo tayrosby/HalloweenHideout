@@ -13,6 +13,9 @@ class ShopScene: SKScene{
     var player : PlayerNode?
     var candyNode : SKLabelNode?
     
+    /**
+     creates the scene
+     */
     override func didMove(to view: SKView) {
         if let theCandyLabel = self.childNode(withName: "candyNode") {
             candyNode = theCandyLabel as? SKLabelNode
@@ -26,7 +29,11 @@ class ShopScene: SKScene{
         
     }
     
+    /**
+     sends the selected costume to costume scene
+     */
     func sendToCostumeScene(nodeName: String) {
+        //sets the costume node name
         costumeScene?.nodeName = nodeName
         
         // Load the SKScene from ' Costume.sks'
@@ -93,6 +100,7 @@ class ShopScene: SKScene{
                 
             }
             
+        //sends the node name depending on which one was touched
         case is SKSpriteNode:
             
             if touchedNode.name == "costume1" {

@@ -12,7 +12,9 @@ class DamageState : GKState {
     var pNode:PlayerNode?
     var cameraNode: SKCameraNode?
     
-    //initalizes player
+    /**
+     initalize player
+     */
     init(with node: PlayerNode) {
         self.pNode = node
     }

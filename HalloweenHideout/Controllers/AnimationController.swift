@@ -34,12 +34,14 @@ class AnimationController : GKComponent {
         
         var prefix = ""
         
+        //checks for the character type
         if (characterType == 2) {
             prefix = "Enemy"
         } else if (characterType == 3) {
             prefix = "Costume"
         }
         
+        //sets the SKAction depending on the name
         for name in actionNames {
             if name.key == "Idle" || name.key == "Damage" || name.key == "Dead" || name.key == "Attack" || name.key == "Falling" || name.key == "Jump" || name.key == "Run"{
                 actionNames[name.key] = "\(prefix)\(name.value)"
@@ -49,10 +51,15 @@ class AnimationController : GKComponent {
         }
     }
     
+    /**
+     changes the character type for character transformation
+     */
     func updateCharacterType() -> Int {
+        //sets the nodes
         if pNode == nil {
             if let nodeComponent = self.entity?.component(ofType: GKSKNodeComponent.self) {
                 pNode = nodeComponent.node as? PlayerNode
+                //changes the character type based on what the current type in player class is
                 characterType = pNode!.characterType
                 
             }
@@ -87,54 +94,54 @@ class AnimationController : GKComponent {
                 if (pNode?.left)! || (pNode?.right)! {
                     playAnimation(with: "Run")
                 } else {
-                playAnimation(with: "Idle")
+                    playAnimation(with: "Idle")
+                }
+            } else {
+                //plays jump animation based on velocity
+                if (pNode?.physicsBody?.velocity.dy)! > 10.0 {
+                    playAnimation(with: "Jump")
+                    
+                } // plays falling animation based on velocity
+                else if (pNode?.physicsBody?.velocity.dy)! < 10.0 {
+                    playAnimation(with: "Falling")
+                }
             }
-        } else {
-            //plays jump animation based on velocity
-            if (pNode?.physicsBody?.velocity.dy)! > 10.0 {
-                playAnimation(with: "Jump")
-                
-            } // plays falling animation based on velocity
-            else if (pNode?.physicsBody?.velocity.dy)! < 10.0 {
-                playAnimation(with: "Falling")
-            }
-        }
-       } //plays attack animation if state is attack
+        } //plays attack animation if state is attack
         else if pNode?.state?.currentState is AttackState {
             playAnimation(with: "Attack")
-
+            
         } // plays damage animation if state is damage
-       else if pNode?.state?.currentState is DamageState {
+        else if pNode?.state?.currentState is DamageState {
             if pNode?.dead == true {
                 playAnimation(with: "Dead")
             } else {
                 playAnimation(with: "Damage")
             }
-        
-       }
-}
-
-/**
+            
+        }
+    }
+    
+    /**
      plays the animation matching the name
      */
-func playAnimation(with name: String) {
-    
-    if ((pNode?.action(forKey: name)) == nil) {
-        pNode?.removeAllActions()
-        if (actions[name] != nil) {
-            if pNode?.dead == true {
-                pNode?.run(actions[name]!, withKey: name)
-                pNode?.run(SKAction.wait(forDuration: 1))
-                pNode?.removeAction(forKey: "Dead")
-                pNode?.texture = SKTexture(imageNamed: "Satyr_01_Dying_014")
-            } else {
-                pNode?.run(actions[name]!, withKey: name)
+    func playAnimation(with name: String) {
+        
+        if ((pNode?.action(forKey: name)) == nil) {
+            pNode?.removeAllActions()
+            if (actions[name] != nil) {
+                if pNode?.dead == true {
+                    pNode?.run(actions[name]!, withKey: name)
+                    pNode?.run(SKAction.wait(forDuration: 1))
+                    pNode?.removeAction(forKey: "Dead")
+                    pNode?.texture = SKTexture(imageNamed: "Satyr_01_Dying_014")
+                } else {
+                    pNode?.run(actions[name]!, withKey: name)
+                }
             }
         }
     }
-}
-
-
+    
+    
 }
 
 

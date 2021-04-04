@@ -12,9 +12,9 @@ class SettingsScene: SKScene {
     var buttonBack: ButtonController!
     
     override func didMove(to view: SKView) {
-        /* Setup your scene here */
+        //Setup your scene here
 
-        /* Set UI connections */
+        //Set UI connections
         buttonBack = self.childNode(withName: "buttonBack") as? ButtonController
         
         buttonBack.selectedHandler = {

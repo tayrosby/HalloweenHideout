@@ -52,10 +52,8 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             //sets collected to true if collision between player and sign happened
             if let tsign = contact.bodyA.node as? TutorialSignNode {
                 tsign.readSign = true
-                print("1 \(tsign.readSign)")
             } else if let tsign = contact.bodyB.node as? TutorialSignNode {
                 tsign.readSign = true
-                print("2 \(tsign.readSign)")
             }
         }
         
@@ -65,10 +63,8 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             //sets collected to true if collision between player and sign happened
             if let nlsign = contact.bodyA.node as? NextLevelSignNode {
                 nlsign.levelComplete = true
-                print("1 \(nlsign.levelComplete)")
             } else if let nlsign = contact.bodyB.node as? NextLevelSignNode {
                 nlsign.levelComplete = true
-                print("2 \(nlsign.levelComplete)")
             }
         }
         
@@ -78,11 +74,9 @@ class PhysicsDetection : NSObject, SKPhysicsContactDelegate {
             //sets collected to true if collision between player and sign happened
             if let costume = contact.bodyA.node as? CostumeObjectNode {
                 costume.costumeTransfer = true
-                print("costume \(costume.costumeTransfer)")
                 costume.removeFromParent()
             } else if let costume = contact.bodyB.node as? CostumeObjectNode {
                 costume.costumeTransfer = true
-                print("costume \(costume.costumeTransfer)")
                 costume.removeFromParent()
             }
         }

@@ -73,9 +73,11 @@ class PlayerNode : SKSpriteNode {
      increases the amount of candy a user has
      */
     func getCandy(_ amount: CGFloat) {
+        //saves the candy from the level
         let levelCandyAmount = UserDefaultsManager.shared.getPlayerLevelCandyAmount() + amount
         UserDefaultsManager.shared.savePlayerLevelCandyAmount(candyAmount: levelCandyAmount)
         
+        //saves the total amount of candy
         let totalCandyAmount = UserDefaultsManager.shared.getPlayerTotalCandyAmount() + amount
         UserDefaultsManager.shared.savePlayerTotalCandyAmount(candyAmount: totalCandyAmount)
     }
@@ -84,6 +86,7 @@ class PlayerNode : SKSpriteNode {
      decreases the amount of candy a user has
      */
     func loseCandy(_ amount: CGFloat) {
+        //saves the total amount of candy
         let candyAmount = UserDefaultsManager.shared.getPlayerTotalCandyAmount() - amount
         UserDefaultsManager.shared.savePlayerTotalCandyAmount(candyAmount: candyAmount)
         
@@ -109,15 +112,6 @@ class PlayerNode : SKSpriteNode {
         } else {
             ownedCostumes.append(costume)
         }
-    }
-    
-    /**
-     allows the user to wear the costume
-     */
-    func wearCostume(_ costume:Costume) {
-        guard hasCostume(costume) else { fatalError() }
-        self.costume = costume
-        self.texture = costume.texture
     }
     
     /**
@@ -156,10 +150,9 @@ class PlayerNode : SKSpriteNode {
         let idleState = IdleState(with: self)
         let attackState = AttackState(with: self)
         let damageState = DamageState(with: self)
-        let deadState = DeadState(with: self)
         
         //adds states to state machine
-        state = GKStateMachine(states: [idleState, attackState, damageState, deadState])
+        state = GKStateMachine(states: [idleState, attackState, damageState])
         
         //adds states to player
         state?.enter(IdleState.self)

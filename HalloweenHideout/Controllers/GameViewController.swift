@@ -10,10 +10,13 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    /**
+     loads the scene
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load the SKScene from 'GameScene.sks'
+        // Load the SKScene from 'MainMenu.sks'
         if let scene = GKScene(fileNamed: "MainMenu") {
             
             if let sceneNode = scene.rootNode as! MainMenu? {
@@ -49,18 +52,9 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-    
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Release any cached data, images, etc that aren't in use.
-//    }
 
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-//    func saveCheckpoint(position: CGPoint?){
-//       // playerPosition = position
-//    }
 }
 

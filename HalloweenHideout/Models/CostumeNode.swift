@@ -14,7 +14,9 @@ class CostumeNode: SKSpriteNode {
     var nameNode = SKLabelNode()
     var priceNode = SKLabelNode()
 
-    
+    /**
+     initilization
+     */
     init(costume: Costume, player: PlayerNode?) {
         
         self.player = player
@@ -37,16 +39,23 @@ class CostumeNode: SKSpriteNode {
      */
     private func setPriceText() {
         
+        /**
+         updates price label
+         */
         func playerCanAfford() {
             priceNode.text = "\(costume?.price ?? 0)"
             priceNode.fontColor = .white
         }
         
+        /**
+         updates price level
+         */
         func playerCantAfford() {
             priceNode.text = "\(costume?.price ?? 0)"
             priceNode.fontColor = .red
         }
         
+        /**updates price level*/
         func playerOwns() {
             priceNode.text = ""
             priceNode.fontColor = .white

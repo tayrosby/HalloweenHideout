@@ -14,64 +14,64 @@ class CharacterSelect : SKScene {
     var player : PlayerNode?
     var lockedLabel : SKLabelNode?
     
-        override func didMove(to view: SKView) {
-
-            /* Set UI connections */
-            buttonSelect = self.childNode(withName: "buttonSelect") as? ButtonController
-            
-            buttonSelect.selectedHandler = {
-                self.startGame()
-            }
-            
-            //creates pop up for the jump label
-                self.lockedLabel = self.childNode(withName: "lockedLabel") as? SKLabelNode
+    override func didMove(to view: SKView) {
+        
+        /* Set UI connections */
+        buttonSelect = self.childNode(withName: "buttonSelect") as? ButtonController
+        
+        buttonSelect.selectedHandler = {
+            self.startGame()
         }
-
+        
+        //creates pop up for the jump label
+        self.lockedLabel = self.childNode(withName: "lockedLabel") as? SKLabelNode
+    }
+    
     /**
      checks for touches on the screen
      */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
-            //sets the location of the touches
-            let location = touch.location(in: self)
-            let touchedNode = atPoint(location)
+        //sets the location of the touches
+        let location = touch.location(in: self)
+        let touchedNode = atPoint(location)
         
-            switch touchedNode {
-            //deselects the character
-            case is CharacterSelect:
-                player?.character = ""
-                touchedNode.removeAllActions()
-            case is SKSpriteNode:
-                //selects the first character
-                if touchedNode.name == "Character1" {
-                    player?.character = "Character1"
-                    //tells the user which character is selected
-                    touchedNode.drawBorder(color: UIColor.systemRed, width: 75)
+        switch touchedNode {
+        //deselects the character
+        case is CharacterSelect:
+            player?.character = ""
+            touchedNode.removeAllActions()
+        case is SKSpriteNode:
+            //selects the first character
+            if touchedNode.name == "Character1" {
+                player?.character = "Character1"
+                //tells the user which character is selected
+                touchedNode.drawBorder(color: UIColor.systemRed, width: 75)
+            }
+            //selects the second character
+            if touchedNode.name == "Character2" {
+                player?.character = "Character2"
+                //tells the user which character is selected
+                touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
+            }
+            //selects the second character
+            if touchedNode.name == "Character3" {
+                player?.character = "Character3"
+                lockedCharacter = true
+                //tells the user which character is selected
+                //touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
+                if let lockedLabel = self.lockedLabel {
+                    lockedLabel.run(SKAction.fadeIn(withDuration: 4.0))
+                    lockedLabel.isHidden = false
+                    lockedLabel.run(SKAction.fadeOut(withDuration: 4.0))
                 }
-                //selects the second character
-                if touchedNode.name == "Character2" {
-                    player?.character = "Character2"
-                    //tells the user which character is selected
-                    touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
-                }
-                //selects the second character
-                if touchedNode.name == "Character3" {
-                    player?.character = "Character3"
-                    lockedCharacter = true
-                    //tells the user which character is selected
-                    //touchedNode.drawBorder(color: UIColor.systemRed, width: 2)
-                    if let lockedLabel = self.lockedLabel {
-                        lockedLabel.run(SKAction.fadeIn(withDuration: 4.0))
-                        lockedLabel.isHidden = false
-                        lockedLabel.run(SKAction.fadeOut(withDuration: 4.0))
-                    }
-                }
-            default:
-                ()
+            }
+        default:
+            ()
         }
     }
-
+    
     /**
      loads the game scene
      */
@@ -79,10 +79,10 @@ class CharacterSelect : SKScene {
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         if let scene = GKScene(fileNamed: "GameScene") {
-
+            
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
-
+                
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
@@ -90,14 +90,14 @@ class CharacterSelect : SKScene {
                 sceneNode.size = self.view!.bounds.size
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
-
-
+                
+                
                 // Present the scene
                 if let view = self.view as! SKView? {
                     view.presentScene(sceneNode, transition: SKTransition.fade(withDuration: 0.5))
-
+                    
                     view.ignoresSiblingOrder = true
-
+                    
                     view.showsFPS = true
                     view.showsNodeCount = true
                     view.showsPhysics = true

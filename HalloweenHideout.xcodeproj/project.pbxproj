@@ -31,12 +31,6 @@
 		739DD9482617D9F500CA488A /* TutorialSignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739DD9472617D9F500CA488A /* TutorialSignNode.swift */; };
 		739DD94D2617DA3C00CA488A /* NextLevelSignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */; };
 		73AE4EAE25F1408D001F1192 /* CharacterSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AE4EAD25F1408D001F1192 /* CharacterSelect.swift */; };
-		73B428642601637500E4EA96 /* TaskBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B428632601637500E4EA96 /* TaskBot.swift */; };
-		73B428692601655400E4EA96 /* ContactNotifiableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B428682601655400E4EA96 /* ContactNotifiableType.swift */; };
-		73B4286E2601662800E4EA96 /* IntelligenceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4286D2601662800E4EA96 /* IntelligenceComponents.swift */; };
-		73B4287326016A9F00E4EA96 /* ChargeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4287226016A9F00E4EA96 /* ChargeComponent.swift */; };
-		73B4287826016BFF00E4EA96 /* ChargeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4287726016BFF00E4EA96 /* ChargeBar.swift */; };
-		73B4287D2601716700E4EA96 /* TaskBotAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4287C2601716700E4EA96 /* TaskBotAgent.swift */; };
 		73BC5D4425AE59A900398E92 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BC5D4325AE59A900398E92 /* MainMenu.swift */; };
 		73BE838125B792CA009D9810 /* CandyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BE838025B792CA009D9810 /* CandyNode.swift */; };
 		73CC08EE25CDEDCB00D5F074 /* Enemy.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */; };
@@ -64,7 +58,6 @@
 		73F9114C25CDD8F60034F9AF /* EnemyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9114B25CDD8F60034F9AF /* EnemyController.swift */; };
 		73FEEF3A26180EC4004C76EA /* CostumeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF3926180EC4004C76EA /* CostumeScene.swift */; };
 		73FEEF4226181F6C004C76EA /* CostumeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 73FEEF4126181F6C004C76EA /* CostumeScene.sks */; };
-		73FEEF5126186504004C76EA /* DeadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF5026186504004C76EA /* DeadState.swift */; };
 		73FEEF562618DC76004C76EA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF552618DC76004C76EA /* UserDefaultsManager.swift */; };
 		73FEEF5B2618F457004C76EA /* Costume.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73FEEF5A2618F457004C76EA /* Costume.xcassets */; };
 		73FEEF60261900A8004C76EA /* CostumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FEEF5F261900A8004C76EA /* CostumeController.swift */; };
@@ -119,12 +112,6 @@
 		739DD9472617D9F500CA488A /* TutorialSignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSignNode.swift; sourceTree = "<group>"; };
 		739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextLevelSignNode.swift; sourceTree = "<group>"; };
 		73AE4EAD25F1408D001F1192 /* CharacterSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelect.swift; sourceTree = "<group>"; };
-		73B428632601637500E4EA96 /* TaskBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBot.swift; sourceTree = "<group>"; };
-		73B428682601655400E4EA96 /* ContactNotifiableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactNotifiableType.swift; sourceTree = "<group>"; };
-		73B4286D2601662800E4EA96 /* IntelligenceComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelligenceComponents.swift; sourceTree = "<group>"; };
-		73B4287226016A9F00E4EA96 /* ChargeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeComponent.swift; sourceTree = "<group>"; };
-		73B4287726016BFF00E4EA96 /* ChargeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeBar.swift; sourceTree = "<group>"; };
-		73B4287C2601716700E4EA96 /* TaskBotAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBotAgent.swift; sourceTree = "<group>"; };
 		73BC5D4325AE59A900398E92 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		73BE838025B792CA009D9810 /* CandyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyNode.swift; sourceTree = "<group>"; };
 		73CC08ED25CDEDCB00D5F074 /* Enemy.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Enemy.xcassets; sourceTree = "<group>"; };
@@ -152,7 +139,6 @@
 		73F9114B25CDD8F60034F9AF /* EnemyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyController.swift; sourceTree = "<group>"; };
 		73FEEF3926180EC4004C76EA /* CostumeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumeScene.swift; sourceTree = "<group>"; };
 		73FEEF4126181F6C004C76EA /* CostumeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CostumeScene.sks; sourceTree = "<group>"; };
-		73FEEF5026186504004C76EA /* DeadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadState.swift; sourceTree = "<group>"; };
 		73FEEF552618DC76004C76EA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		73FEEF5A2618F457004C76EA /* Costume.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Costume.xcassets; sourceTree = "<group>"; };
 		73FEEF5F261900A8004C76EA /* CostumeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumeController.swift; sourceTree = "<group>"; };
@@ -210,7 +196,6 @@
 		7348E45A25807B85000BE321 /* HalloweenHideout */ = {
 			isa = PBXGroup;
 			children = (
-				73B428622601632800E4EA96 /* Enemy AI */,
 				73D6AFE825CB8E4600E719D4 /* Actions */,
 				7348E46825807B86000BE321 /* Assets.xcassets */,
 				7348E45B25807B85000BE321 /* AppDelegate.swift */,
@@ -243,15 +228,6 @@
 			path = HalloweenHideoutUITests;
 			sourceTree = "<group>";
 		};
-		73B428622601632800E4EA96 /* Enemy AI */ = {
-			isa = PBXGroup;
-			children = (
-				73B428632601637500E4EA96 /* TaskBot.swift */,
-				73B4287C2601716700E4EA96 /* TaskBotAgent.swift */,
-			);
-			path = "Enemy AI";
-			sourceTree = "<group>";
-		};
 		73BC5D3625AE583400398E92 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +236,6 @@
 				73E1343725EED7C6008972A5 /* Costume.swift */,
 				73E1343C25EEEE0C008972A5 /* CostumeNode.swift */,
 				7346B29025F33D1C001D6AA2 /* Shop.swift */,
-				73B4287726016BFF00E4EA96 /* ChargeBar.swift */,
 				73266D3A26168B3A00E8116B /* SignNode.swift */,
 				739DD9472617D9F500CA488A /* TutorialSignNode.swift */,
 				739DD94C2617DA3C00CA488A /* NextLevelSignNode.swift */,
@@ -297,7 +272,6 @@
 				73D6AFD825CB547E00E719D4 /* IdleState.swift */,
 				73F9113C25CDC6430034F9AF /* AttackState.swift */,
 				73F9114125CDCC420034F9AF /* DamageState.swift */,
-				73FEEF5026186504004C76EA /* DeadState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -333,7 +307,6 @@
 				73F9113225CD035F0034F9AF /* Hurtbox.swift */,
 				73F9113725CD03F10034F9AF /* Hitbox.swift */,
 				73CC08F225CE528300D5F074 /* ScreenShake.swift */,
-				73B428682601655400E4EA96 /* ContactNotifiableType.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -349,8 +322,6 @@
 				73F9114625CDD8790034F9AF /* AttackController.swift */,
 				73F9114B25CDD8F60034F9AF /* EnemyController.swift */,
 				737CD5B725E5B600003A708F /* ButtonController.swift */,
-				73B4286D2601662800E4EA96 /* IntelligenceComponents.swift */,
-				73B4287226016A9F00E4EA96 /* ChargeComponent.swift */,
 				73FEEF5F261900A8004C76EA /* CostumeController.swift */,
 			);
 			path = Controllers;
@@ -499,9 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B4286E2601662800E4EA96 /* IntelligenceComponents.swift in Sources */,
 				73AE4EAE25F1408D001F1192 /* CharacterSelect.swift in Sources */,
-				73B428692601655400E4EA96 /* ContactNotifiableType.swift in Sources */,
 				73FEEF60261900A8004C76EA /* CostumeController.swift in Sources */,
 				73FEEF3A26180EC4004C76EA /* CostumeScene.swift in Sources */,
 				7348E46225807B85000BE321 /* GameScene.swift in Sources */,
@@ -509,13 +478,11 @@
 				73FEEF65261909C3004C76EA /* CostumeObjectNode.swift in Sources */,
 				73FEEF562618DC76004C76EA /* UserDefaultsManager.swift in Sources */,
 				73F41E0425C687CA00845EC4 /* TouchController.swift in Sources */,
-				73B4287326016A9F00E4EA96 /* ChargeComponent.swift in Sources */,
 				731A2C4E25EF52CE007A260A /* ShopScene.swift in Sources */,
 				73F9114225CDCC420034F9AF /* DamageState.swift in Sources */,
 				73D6AFCE25CB4D5500E719D4 /* PlayerNode.swift in Sources */,
 				73787D4B26167B8E00966CA6 /* SettingsScene.swift in Sources */,
 				7348E46425807B85000BE321 /* GameViewController.swift in Sources */,
-				73B4287826016BFF00E4EA96 /* ChargeBar.swift in Sources */,
 				73BC5D4425AE59A900398E92 /* MainMenu.swift in Sources */,
 				73D6AFDF25CB5FA500E719D4 /* PhysicsDetection.swift in Sources */,
 				73F9112B25CCD14A0034F9AF /* ParallaxController.swift in Sources */,
@@ -525,7 +492,6 @@
 				73E1343D25EEEE0C008972A5 /* CostumeNode.swift in Sources */,
 				73D6AFF525CB95C000E719D4 /* AnimationController.swift in Sources */,
 				73F9113325CD035F0034F9AF /* Hurtbox.swift in Sources */,
-				73B4287D2601716700E4EA96 /* TaskBotAgent.swift in Sources */,
 				73F9114C25CDD8F60034F9AF /* EnemyController.swift in Sources */,
 				737CD5B825E5B600003A708F /* ButtonController.swift in Sources */,
 				73BE838125B792CA009D9810 /* CandyNode.swift in Sources */,
@@ -533,9 +499,7 @@
 				73F9113D25CDC6430034F9AF /* AttackState.swift in Sources */,
 				73D6AFC925CB3F5A00E719D4 /* PlayerController.swift in Sources */,
 				73D6AFD925CB547E00E719D4 /* IdleState.swift in Sources */,
-				73FEEF5126186504004C76EA /* DeadState.swift in Sources */,
 				739DD93B2617CFD600CA488A /* GameOverScene.swift in Sources */,
-				73B428642601637500E4EA96 /* TaskBot.swift in Sources */,
 				739DD9482617D9F500CA488A /* TutorialSignNode.swift in Sources */,
 				73F9113825CD03F10034F9AF /* Hitbox.swift in Sources */,
 				73F9114725CDD8790034F9AF /* AttackController.swift in Sources */,

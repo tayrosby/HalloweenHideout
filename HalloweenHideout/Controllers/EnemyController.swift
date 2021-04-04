@@ -21,7 +21,9 @@ class EnemyController : GKComponent {
         }
     }
     
-    /**updates the frames*/
+    /**
+     updates the frames
+     */
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
         

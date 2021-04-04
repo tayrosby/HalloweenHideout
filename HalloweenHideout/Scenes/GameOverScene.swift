@@ -12,12 +12,13 @@ class GameOverScene: SKScene {
     var buttonMenu: ButtonController!
     
     override func didMove(to view: SKView) {
-        /* Setup your scene here */
+        //Setup your scene here
 
-        /* Set UI connections */
+        //Set UI connections
         buttonReplay = self.childNode(withName: "buttonReplay") as? ButtonController
         buttonMenu = self.childNode(withName: "buttonMenu") as? ButtonController
         
+        //button handlers
         buttonReplay.selectedHandler = {
             self.replayGame()
         }
@@ -29,7 +30,7 @@ class GameOverScene: SKScene {
     }
         
         /**
-         navigates to the select game menu
+         navigates to the game menu
          */
         func replayGame(){
             // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
